@@ -1,0 +1,428 @@
+/* ===========================================================
+   pplastic — client-side i18n (EN / ΕΛ)
+   Toggle with [data-lang-btn="en"|"el"]; strings via [data-i18n].
+   Preference is saved in localStorage.
+   =========================================================== */
+(function () {
+  "use strict";
+
+  var I18N = {
+    en: {
+      "lang.en": "EN",
+      "lang.el": "ΕΛ",
+
+      "nav.home": "Home",
+      "nav.about": "About us",
+      "nav.marine": "Marine",
+      "nav.technical": "Technical",
+      "nav.exhibitions": "Exhibitions",
+      "nav.catalogue": "Catalogue",
+      "nav.contact": "Contact us",
+
+      "bc.home": "Home",
+      "bc.about": "About us",
+      "bc.marine": "Marine",
+      "bc.technical": "Technical",
+      "bc.exhibitions": "Exhibitions",
+      "bc.catalogue": "Catalogue",
+      "bc.contact": "Contact us",
+      "bc.rubrails": "Rub rails",
+      "bc.inflatable": "Inflatable",
+      "bc.heavyduty": "Heavy duty",
+      "bc.various": "Various",
+
+      "footer.tagline": "Papadopoulos Plastic Profiles S.A. — specialized in PVC extrusion since 1962. A reliable and flexible partner for plastic profiles worldwide.",
+      "footer.company": "Company",
+      "footer.products": "Products",
+      "footer.getintouch": "Get in touch",
+      "footer.since": "Extruding since 1962",
+      "footer.copyright": "© 1962–2026 Papadopoulos Plastic Profiles S.A. — pplastic.gr",
+
+      "index.hero.eyebrow": "PVC Extrusion • Since 1962",
+      "index.hero.title": "Extruding since 1962",
+      "index.hero.sub": "We are specialized in PVC extrusion for over half a century — manufacturing high-quality plastic profiles for a wide range of applications, using the highest quality of raw material and the best standards in our production procedure.",
+      "index.hero.cta1": "Browse the catalogue →",
+      "index.hero.cta2": "Who we are",
+      "index.intro.eyebrow": "A reliable &amp; flexible partner",
+      "index.intro.title": "Plastic profiles, engineered to last",
+      "lead1": "Our company is specialized in PVC extrusion for over half a century.",
+      "lead2": "We manufacture plastic profiles for a wide range of applications, using the highest quality of raw material and the best standards in our production procedure.",
+      "lead3": "For comprehensive information about our products, please browse our web site.",
+      "lead4": "Welcome to Papadopoulos Plastic Profiles S.A. — a reliable and flexible partner.",
+      "index.prod.eyebrow": "What we make",
+      "index.prod.title": "From raw material to finished profile",
+      "index.prod.sub": "A glimpse into our production — granules, extruded profiles and coiled sections for every application.",
+      "index.card1.title": "PVC Granules",
+      "index.card1.sub": "High-grade raw material, strictly selected for consistent extrusion quality.",
+      "index.card2.title": "Plastic Profiles",
+      "index.card2.sub": "Extruded profiles for marine, technical and industrial applications.",
+      "index.card3.title": "Profile Coils",
+      "index.card3.sub": "Flexible coiled sections, supplied to length for efficient installation.",
+      "index.cap.eyebrow": "Why pplastic",
+      "index.cap.title": "Built on decades of extrusion expertise",
+      "index.feat1.title": "60+ years of know-how",
+      "index.feat1.sub": "Continuous extrusion experience since 1962, refined across generations.",
+      "index.feat2.title": "Premium raw material",
+      "index.feat2.sub": "Only the highest quality compounds enter our production lines.",
+      "index.feat3.title": "Flexible partnership",
+      "index.feat3.sub": "Custom profiles and volumes tailored to each client's needs.",
+      "index.stat1.label": "Extruding since",
+      "index.stat2.label": "Years of expertise",
+      "index.stat3.label": "Applications",
+      "index.stat4.label": "Quality focus",
+      "index.cta.title": "Let's build your next profile together",
+      "index.cta.sub": "Tell us about your application — we'll help you find or develop the right extruded solution.",
+      "index.cta.btn": "Contact us →",
+
+      "about.hero.eyebrow": "About us",
+      "about.hero.title": "A family of extrusion, since 1962",
+      "about.hero.sub": "Papadopoulos Plastic Profiles S.A. — a reliable and flexible partner in PVC extrusion for over half a century.",
+
+      "marine.hero.eyebrow": "Marine",
+      "marine.hero.title": "Profiles built for the water",
+      "marine.hero.sub": "Durable extruded sections engineered for boats, yachts and marine fittings.",
+      "marine.eyebrow": "Our marine range",
+      "marine.title": "Explore the marine collection",
+      "marine.sub": "From protective rub rails to inflatable and heavy-duty sections — browse the categories below.",
+      "marine.card1.title": "Rub rails",
+      "marine.card1.sub": "Protective gunwale and hull rails that absorb impact and guard against abrasion.",
+      "marine.card2.title": "Inflatable",
+      "marine.card2.sub": "Profiles designed for inflatable boats and buoyancy structures.",
+      "marine.card3.title": "Heavy duty",
+      "marine.card3.sub": "Reinforced sections for demanding commercial and professional marine use.",
+      "marine.card4.title": "Various",
+      "marine.card4.sub": "Additional marine fittings and custom extruded solutions.",
+
+      "technical.hero.eyebrow": "Technical",
+      "technical.hero.title": "Engineered extrusion, to spec",
+      "technical.hero.sub": "Technical profiles produced to precise tolerances for industrial and custom applications.",
+      "technical.lead2": "Our technical profiles cover a wide range of applications — sealing, edge protection, structural and decorative sections — produced to customer drawings and samples.",
+      "technical.lead3": "Looking for a specific section? Send us your drawing or sample and we'll develop the tooling.",
+      "technical.feat1.title": "To drawing",
+      "technical.feat1.sub": "Profiles extruded from your CAD drawing or physical sample.",
+      "technical.feat2.title": "Any colour",
+      "technical.feat2.sub": "Custom colour matching to your specification.",
+      "technical.feat3.title": "Any length",
+      "technical.feat3.sub": "Supplied in bars or coils, to the length you need.",
+
+      "exhibitions.hero.eyebrow": "Exhibitions",
+      "exhibitions.hero.title": "Where to meet us",
+      "exhibitions.hero.sub": "We exhibit at leading marine and plastics trade shows around the world.",
+      "exhibitions.lead1": "Meet our team and see our profiles first-hand at the exhibitions we attend throughout the year.",
+      "exhibitions.lead2": "For our upcoming show schedule and stand details, please get in touch — we'd be glad to welcome you.",
+      "exhibitions.cta.title": "Planning to visit a show?",
+      "exhibitions.cta.sub": "Let us know and we'll share our stand location and latest samples.",
+      "exhibitions.cta.btn": "Contact us →",
+
+      "catalogue.hero.eyebrow": "Catalogue",
+      "catalogue.hero.title": "Our product range",
+      "catalogue.hero.sub": "Browse the profiles we manufacture — from marine rails to technical and custom sections.",
+      "catalogue.card1.title": "Marine",
+      "catalogue.card1.sub": "Rub rails, inflatable, heavy-duty and various marine profiles.",
+      "catalogue.card2.title": "Technical",
+      "catalogue.card2.sub": "Custom extruded sections to drawing and specification.",
+      "catalogue.card3.title": "Coils &amp; bars",
+      "catalogue.card3.sub": "Supplied in the length and format your production needs.",
+      "catalogue.cta.title": "Need the full catalogue?",
+      "catalogue.cta.sub": "Request our latest PDF catalogue and product datasheets.",
+      "catalogue.cta.btn": "Request catalogue →",
+
+      "contact.hero.eyebrow": "Contact us",
+      "contact.hero.title": "Let's talk profiles",
+      "contact.hero.sub": "For any further information you may require, please don't hesitate to contact us.",
+      "contact.intro.eyebrow": "Get in touch",
+      "contact.intro.title": "We'd love to hear from you",
+      "contact.intro.sub": "Our office and factory are open on weekdays — reach us by phone, fax or email.",
+      "contact.k.office": "Office &amp; Factory",
+      "contact.office.val": "Papadopoulos Plastic Profiles S.A.<br>2 Salaminias Str.<br>11855 Athens, Greece",
+      "contact.k.tel": "Tel.",
+      "contact.k.fax": "Fax",
+      "contact.k.email": "Email",
+      "contact.k.hours": "Working Hours",
+      "contact.hours.days": "Mon – Fri",
+      "contact.hours.time": "8:00 – 16:00 EET",
+      "contact.persons": "Contact persons",
+      "contact.person1.role": "Sales and Customer Service",
+      "contact.person1.name": "Pavlos Papadopoulos",
+      "contact.person2.role": "Technical Dept.",
+      "contact.person2.name": "Panagiotis Papadopoulos",
+      "contact.form.name": "Name",
+      "contact.form.email": "Email",
+      "contact.form.phone": "Phone",
+      "contact.form.message": "Message",
+      "contact.form.ph.name": "Your name",
+      "contact.form.ph.email": "you@company.com",
+      "contact.form.ph.phone": "+30 123 456 7890",
+      "contact.form.ph.message": "Tell us about your profile needs…",
+      "contact.form.btn": "Send message",
+
+      "sub.hero.eyebrow.rubrails": "Marine / Rub rails",
+      "sub.hero.title.rubrails": "Rub rails",
+      "sub.hero.sub.rubrails": "Protective gunwale and hull rails that absorb impact and guard against abrasion.",
+      "sub.lead1.rubrails": "Our rub rails shield hulls, decks and docks from knocks and wear. Extruded in durable PVC, they combine impact resistance with a clean, finished look.",
+      "sub.lead2.rubrails": "Available in a range of profiles and colours — contact us with your requirement.",
+      "sub.cta.title.rubrails": "Need a specific rub rail?",
+      "sub.cta.sub.rubrails": "Send us your sample or drawing and we'll match or develop it.",
+
+      "sub.hero.eyebrow.inflatable": "Marine / Inflatable",
+      "sub.hero.title.inflatable": "Inflatable",
+      "sub.hero.sub.inflatable": "Profiles designed for inflatable boats and buoyancy structures.",
+      "sub.lead1.inflatable": "Our inflatable-range profiles provide the structure and sealing inflatable craft rely on. Manufactured to consistent tolerances for a reliable, airtight fit.",
+      "sub.lead2.inflatable": "Tell us your boat type and we'll recommend the right section.",
+      "sub.cta.title.inflatable": "Build your inflatable right",
+      "sub.cta.sub.inflatable": "Get in touch for profile recommendations and samples.",
+
+      "sub.hero.eyebrow.heavyduty": "Marine / Heavy duty",
+      "sub.hero.title.heavyduty": "Heavy duty",
+      "sub.hero.sub.heavyduty": "Reinforced sections for demanding commercial and professional marine use.",
+      "sub.lead1.heavyduty": "Built for tough conditions, our heavy-duty marine profiles deliver the strength and longevity professional fleets require — from fenders to structural trims.",
+      "sub.lead2.heavyduty": "Specify your operating environment and we'll propose the right grade.",
+      "sub.cta.title.heavyduty": "Tough jobs need tough profiles",
+      "sub.cta.sub.heavyduty": "Contact our team for heavy-duty recommendations.",
+
+      "sub.hero.eyebrow.various": "Marine / Various",
+      "sub.hero.title.various": "Various",
+      "sub.hero.sub.various": "Additional marine fittings and custom extruded solutions.",
+      "sub.lead1.various": "Everything else in our marine range — edge trims, seals, glazing and bespoke sections developed with our clients over six decades of extrusion.",
+      "sub.lead2.various": "If you don't see it listed, ask us — we likely make it or can develop it.",
+      "sub.cta.title.various": "Can't find what you need?",
+      "sub.cta.sub.various": "Send us a sample or drawing and we'll develop the profile.",
+
+      "cta.contact.btn": "Contact us →"
+    },
+
+    el: {
+      "lang.en": "EN",
+      "lang.el": "ΕΛ",
+
+      "nav.home": "Αρχική",
+      "nav.about": "Η Εταιρεία",
+      "nav.marine": "Ναυτιλιακά",
+      "nav.technical": "Τεχνικά",
+      "nav.exhibitions": "Εκθέσεις",
+      "nav.catalogue": "Κατάλογος",
+      "nav.contact": "Επικοινωνία",
+
+      "bc.home": "Αρχική",
+      "bc.about": "Η Εταιρεία",
+      "bc.marine": "Ναυτιλιακά",
+      "bc.technical": "Τεχνικά",
+      "bc.exhibitions": "Εκθέσεις",
+      "bc.catalogue": "Κατάλογος",
+      "bc.contact": "Επικοινωνία",
+      "bc.rubrails": "Rub rails",
+      "bc.inflatable": "Φουσκωτά",
+      "bc.heavyduty": "Βαριάς χρήσης",
+      "bc.various": "Διάφορα",
+
+      "footer.tagline": "Papadopoulos Plastic Profiles S.A. — εξειδικευμένη στην εξώθηση PVC από το 1962. Ένας αξιόπιστος και ευέλικτος συνεργάτης για προφίλ πλαστικού παγκοσμίως.",
+      "footer.company": "Εταιρεία",
+      "footer.products": "Προϊόντα",
+      "footer.getintouch": "Επικοινωνία",
+      "footer.since": "Εξωθούμε από το 1962",
+      "footer.copyright": "© 1962–2026 Papadopoulos Plastic Profiles S.A. — pplastic.gr",
+
+      "index.hero.eyebrow": "Εξώθηση PVC • Από το 1962",
+      "index.hero.title": "Εξωθούμε από το 1962",
+      "index.hero.sub": "Εξειδικευόμαστε στην εξώθηση PVC για περισσότερο από μισό αιώνα — κατασκευάζοντας προφίλ πλαστικού υψηλής ποιότητας για ένα ευρύ φάσμα εφαρμογών, χρησιμοποιώντας πρώτες ύλες υψηλότατης ποιότητας και τα καλύτερα πρότυπα στη διαδικασία παραγωγής μας.",
+      "index.hero.cta1": "Περιηγηθείτε στον κατάλογο →",
+      "index.hero.cta2": "Ποιοι είμαστε",
+      "index.intro.eyebrow": "Αξιόπιστος &amp; ευέλικτος συνεργάτης",
+      "index.intro.title": "Προφίλ πλαστικού, σχεδιασμένα για να αντέχουν",
+      "lead1": "Η εταιρεία μας εξειδικεύεται στην εξώθηση PVC για πάνω από μισό αιώνα.",
+      "lead2": "Κατασκευάζουμε προφίλ πλαστικού για ένα ευρύ φάσμα εφαρμογών, χρησιμοποιώντας πρώτες ύλες υψηλότατης ποιότητας και τα καλύτερα πρότυπα στη διαδικασία παραγωγής μας.",
+      "lead3": "Για πλήρη πληροφόρηση σχετικά με τα προϊόντα μας, περιηγηθείτε στην ιστοσελίδα μας.",
+      "lead4": "Καλώς ήλθατε στην Papadopoulos Plastic Profiles S.A. — έναν αξιόπιστο και ευέλικτο συνεργάτη.",
+      "index.prod.eyebrow": "Τι κατασκευάζουμε",
+      "index.prod.title": "Από την πρώτη ύλη στο έτοιμο προφίλ",
+      "index.prod.sub": "Μια ματιά στην παραγωγή μας — κοκκία, εξωθημένα προφίλ και ρολά για κάθε εφαρμογή.",
+      "index.card1.title": "Κοκκία PVC",
+      "index.card1.sub": "Πρώτη ύλη υψηλής ποιότητας, αυστηρά επιλεγμένη για σταθερή ποιότητα εξώθησης.",
+      "index.card2.title": "Προφίλ Πλαστικού",
+      "index.card2.sub": "Εξωθημένα προφίλ για ναυτιλιακές, τεχνικές και βιομηχανικές εφαρμογές.",
+      "index.card3.title": "Ρολά Προφίλ",
+      "index.card3.sub": "Εύκαμπτα τμήματα σε ρολά, παρέχονται στο επιθυμητό μήκος για αποδοτική τοποθέτηση.",
+      "index.cap.eyebrow": "Γιατί pplastic",
+      "index.cap.title": "Βασισμένοι σε δεκαετίες εμπειρίας στην εξώθηση",
+      "index.feat1.title": "Πάνω από 60 χρόνια τεχνογνωσίας",
+      "index.feat1.sub": "Συνεχής εμπειρία εξώθησης από το 1962, βελτιστοποιημένη μέσα από τις γενιές.",
+      "index.feat2.title": "Πρώτες ύλες ανώτερης ποιότητας",
+      "index.feat2.sub": "Μόνο ενώσεις υψηλότατης ποιότητας μπαίνουν στις γραμμές παραγωγής μας.",
+      "index.feat3.title": "Ευέλικτη συνεργασία",
+      "index.feat3.sub": "Προσαρμοσμένα προφίλ και ποσότητες σύμφωνα με τις ανάγκες κάθε πελάτη.",
+      "index.stat1.label": "Εξωθούμε από",
+      "index.stat2.label": "Χρόνια εμπειρίας",
+      "index.stat3.label": "Εφαρμογές",
+      "index.stat4.label": "Εστίαση στην ποιότητα",
+      "index.cta.title": "Ας κατασκευάσουμε μαζί το επόμενο προφίλ σας",
+      "index.cta.sub": "Πείτε μας για την εφαρμογή σας — θα σας βοηθήσουμε να βρείτε ή να αναπτύξετε τη σωστή εξωθημένη λύση.",
+      "index.cta.btn": "Επικοινωνήστε μαζί μας →",
+
+      "about.hero.eyebrow": "Η Εταιρεία",
+      "about.hero.title": "Μια οικογένεια εξώθησης, από το 1962",
+      "about.hero.sub": "Papadopoulos Plastic Profiles S.A. — ένας αξιόπιστος και ευέλικτος συνεργάτης στην εξώθηση PVC για πάνω από μισό αιώνα.",
+
+      "marine.hero.eyebrow": "Ναυτιλιακά",
+      "marine.hero.title": "Προφίλ φτιαγμένα για τη θάλασσα",
+      "marine.hero.sub": "Ανθεκτικά εξωθημένα τμήματα σχεδιασμένα για σκάφη, θαλαμηγούς και ναυτιλιακό εξοπλισμό.",
+      "marine.eyebrow": "Η ναυτιλιακή μας γκάμα",
+      "marine.title": "Εξερευνήστε τη ναυτιλιακή συλλογή",
+      "marine.sub": "Από προστατευτικά rub rails μέχρι εξωθήματα για σωστήρες και βαριάς χρήσης — περιηγηθείτε στις κατηγορίες παρακάτω.",
+      "marine.card1.title": "Rub rails",
+      "marine.card1.sub": "Προστατευτικές μπούκλες και μπάρες κύτους που απορροφούν κρούσεις και προστατεύουν από τριβή.",
+      "marine.card2.title": "Φουσκωτά",
+      "marine.card2.sub": "Προφίλ σχεδιασμένα για φουσκωτά σκάφη και δομές πλευστότητας.",
+      "marine.card3.title": "Βαριάς χρήσης",
+      "marine.card3.sub": "Ενισχυμένα τμήματα για απαιτητική εμπορική και επαγγελματική ναυτική χρήση.",
+      "marine.card4.title": "Διάφορα",
+      "marine.card4.sub": "Επιπλέον ναυτιλιακός εξοπλισμός και προσαρμοσμένες εξωθημένες λύσεις.",
+
+      "technical.hero.eyebrow": "Τεχνικά",
+      "technical.hero.title": "Μηχανολογική εξώθηση, σύμφωνα με τις προδιαγραφές",
+      "technical.hero.sub": "Τεχνικά προφίλ κατασκευασμένα με ακριβείς ανοχές για βιομηχανικές και προσαρμοσμένες εφαρμογές.",
+      "technical.lead2": "Τα τεχνικά μας προφίλ καλύπτουν ένα ευρύ φάσμα εφαρμογών — στεγανοποίηση, προστασία άκρων, δομικά και διακοσμητικά τμήματα — κατασκευασμένα σύμφωνα με σχέδια και δείγματα πελατών.",
+      "technical.lead3": "Ψάχνετε για ένα συγκεκριμένο τμήμα; Στείλτε μας το σχέδιο ή το δείγμά σας και θα αναπτύξουμε το καλούπι.",
+      "technical.feat1.title": "Σύμφωνα με σχέδιο",
+      "technical.feat1.sub": "Προφίλ εξωθούμενα από το σχέδιο CAD ή το φυσικό δείγμά σας.",
+      "technical.feat2.title": "Οποιοδήποτε χρώμα",
+      "technical.feat2.sub": "Προσαρμογή χρώματος σύμφωνα με τις προδιαγραφές σας.",
+      "technical.feat3.title": "Οποιοδήποτε μήκος",
+      "technical.feat3.sub": "Παρέχονται σε ράβδους ή ρολά, στο μήκος που χρειάζεστε.",
+
+      "exhibitions.hero.eyebrow": "Εκθέσεις",
+      "exhibitions.hero.title": "Πού θα μας συναντήσετε",
+      "exhibitions.hero.sub": "Συμμετέχουμε στις κορυφαίες ναυτιλιακές και πλαστικών εκθέσεις σε όλο τον κόσμο.",
+      "exhibitions.lead1": "Γνωρίστε την ομάδα μας και δείτε τα προφίλ μας από κοντά στις εκθέσεις που συμμετέχουμε όλο τον χρόνο.",
+      "exhibitions.lead2": "Για το επερχόμενο πρόγραμμα εκθέσεων και λεπτομέρειες περιπτέρου, επικοινωνήστε μαζί μας — θα χαρούμε να σας υποδεχθούμε.",
+      "exhibitions.cta.title": "Σχεδιάζετε να επισκεφθείτε μια έκθεση;",
+      "exhibitions.cta.sub": "Ενημερώστε μας και θα μοιραστούμε την τοποθεσία του περιπτέρου μας και τα τελευταία δείγματά μας.",
+      "exhibitions.cta.btn": "Επικοινωνήστε μαζί μας →",
+
+      "catalogue.hero.eyebrow": "Κατάλογος",
+      "catalogue.hero.title": "Η γκάμα προϊόντων μας",
+      "catalogue.hero.sub": "Περιηγηθείτε στα προφίλ που κατασκευάζουμε — από ναυτιλιακές μπούκλες μέχρι τεχνικά και προσαρμοσμένα τμήματα.",
+      "catalogue.card1.title": "Ναυτιλιακά",
+      "catalogue.card1.sub": "Rub rails, φουσκωτά, βαριάς χρήσης και διάφορα ναυτιλιακά προφίλ.",
+      "catalogue.card2.title": "Τεχνικά",
+      "catalogue.card2.sub": "Προσαρμοσμένα εξωθημένα τμήματα σύμφωνα με σχέδιο και προδιαγραφές.",
+      "catalogue.card3.title": "Ρολά &amp; ράβδοι",
+      "catalogue.card3.sub": "Παρέχονται στο μήκος και τη μορφή που χρειάζεται η παραγωγή σας.",
+      "catalogue.cta.title": "Χρειάζεστε τον πλήρη κατάλογο;",
+      "catalogue.cta.sub": "Ζητήστε τον πιο πρόσφατο κατάλογο PDF και τα φύλλα στοιχείων προϊόντων.",
+      "catalogue.cta.btn": "Ζητήστε τον κατάλογο →",
+
+      "contact.hero.eyebrow": "Επικοινωνία",
+      "contact.hero.title": "Ας μιλήσουμε για προφίλ",
+      "contact.hero.sub": "Για οποιαδήποτε περαιτέρω πληροφορία χρειάζεστε, μη διστάσετε να επικοινωνήσετε μαζί μας.",
+      "contact.intro.eyebrow": "Επικοινωνήστε",
+      "contact.intro.title": "Θα χαρούμε να ακούσουμε από εσάς",
+      "contact.intro.sub": "Τα γραφεία και το εργοστάσιό μας είναι ανοιχτά τις καθημερινές — επικοινωνήστε μαζί μας τηλεφωνικά, με φαξ ή email.",
+      "contact.k.office": "Γραφεία &amp; Εργοστάσιο",
+      "contact.office.val": "Papadopoulos Plastic Profiles S.A.<br>2 Salaminias Str.<br>11855 Αθήνα, Ελλάδα",
+      "contact.k.tel": "Τηλ.",
+      "contact.k.fax": "Φαξ",
+      "contact.k.email": "Email",
+      "contact.k.hours": "Ώρες Λειτουργίας",
+      "contact.hours.days": "Δευ – Παρ",
+      "contact.hours.time": "8:00 – 16:00",
+      "contact.persons": "Υπεύθυνοι επικοινωνίας",
+      "contact.person1.role": "Πωλήσεις και Εξυπηρέτηση Πελατών",
+      "contact.person1.name": "Παύλος Παπαδόπουλος",
+      "contact.person2.role": "Τεχνικό Τμήμα",
+      "contact.person2.name": "Παναγιώτης Παπαδόπουλος",
+      "contact.form.name": "Όνομα",
+      "contact.form.email": "Email",
+      "contact.form.phone": "Τηλέφωνο",
+      "contact.form.message": "Μήνυμα",
+      "contact.form.ph.name": "Το όνομά σας",
+      "contact.form.ph.email": "εσείς@εταιρεία.gr",
+      "contact.form.ph.phone": "+30 123 456 7890",
+      "contact.form.ph.message": "Πείτε μας για τις ανάγκες σας σε προφίλ…",
+      "contact.form.btn": "Αποστολή μηνύματος",
+
+      "sub.hero.eyebrow.rubrails": "Ναυτιλιακά / Rub rails",
+      "sub.hero.title.rubrails": "Rub rails",
+      "sub.hero.sub.rubrails": "Προστατευτικές μπούκλες και μπάρες κύτους που απορροφούν κρούσεις και προστατεύουν από τριβή.",
+      "sub.lead1.rubrails": "Τα rub rails μας προστατεύουν τα κύτη, τα καταστρώματα και τις προκυμαίες από χτυπήματα και φθορά. Εξωθημένα σε ανθεκτικό PVC, συνδυάζουν αντοχή σε κρούσεις με μια καθαρή, ολοκληρωμένη εμφάνιση.",
+      "sub.lead2.rubrails": "Διαθέσιμα σε μια σειρά προφίλ και χρωμάτων — επικοινωνήστε μαζί μας με τις απαιτήσεις σας.",
+      "sub.cta.title.rubrails": "Χρειάζεστε συγκεκριμένο rub rail;",
+      "sub.cta.sub.rubrails": "Στείλτε μας το δείγμα ή το σχέδιό σας και θα το ταιριάξουμε ή θα το αναπτύξουμε.",
+
+      "sub.hero.eyebrow.inflatable": "Ναυτιλιακά / Φουσκωτά",
+      "sub.hero.title.inflatable": "Φουσκωτά",
+      "sub.hero.sub.inflatable": "Προφίλ σχεδιασμένα για φουσκωτά σκάφη και δομές πλευστότητας.",
+      "sub.lead1.inflatable": "Τα προφίλ της σειράς φουσκωτών παρέχουν τη δομή και τη στεγανοποίηση που βασίζονται τα φουσκωτά σκάφη. Κατασκευασμένα με σταθερές ανοχές για αξιόπιστη, αεροστεγή εφαρμογή.",
+      "sub.lead2.inflatable": "Πείτε μας τον τύπο σκάφους σας και θα προτείνουμε το σωστό τμήμα.",
+      "sub.cta.title.inflatable": "Κατασκευάστε σωστά το φουσκωτό σας",
+      "sub.cta.sub.inflatable": "Επικοινωνήστε μαζί μας για προτάσεις προφίλ και δείγματα.",
+
+      "sub.hero.eyebrow.heavyduty": "Ναυτιλιακά / Βαριάς χρήσης",
+      "sub.hero.title.heavyduty": "Βαριάς χρήσης",
+      "sub.hero.sub.heavyduty": "Ενισχυμένα τμήματα για απαιτητική εμπορική και επαγγελματική ναυτική χρήση.",
+      "sub.lead1.heavyduty": "Φτιαγμένα για σκληρές συνθήκες, τα προφίλ βαριάς χρήσης προσφέρουν την αντοχή και τη διάρκεια που απαιτούν οι επαγγελματικοί στόλοι — από ελαστικά προστασίας μέχρι δομικά περιγράμματα.",
+      "sub.lead2.heavyduty": "Καθορίστε το περιβάλλον λειτουργίας σας και θα προτείνουμε την κατάλληλη βαθμίδα.",
+      "sub.cta.title.heavyduty": "Οι δύσκολες δουλειές χρειάζονται ανθεκτικά προφίλ",
+      "sub.cta.sub.heavyduty": "Επικοινωνήστε με την ομάδα μας για προτάσεις βαριάς χρήσης.",
+
+      "sub.hero.eyebrow.various": "Ναυτιλιακά / Διάφορα",
+      "sub.hero.title.various": "Διάφορα",
+      "sub.hero.sub.various": "Επιπλέον ναυτιλιακός εξοπλισμός και προσαρμοσμένες εξωθημένες λύσεις.",
+      "sub.lead1.various": "Όλα τα υπόλοιπα στη ναυτιλιακή μας γκάμα — περιγράμματα άκρων, στεγανοποιήσεις, υαλοστάσια και προσαρμοσμένα τμήματα που αναπτύχθηκαν με τους πελάτες μας σε έξι δεκαετίες εξώθησης.",
+      "sub.lead2.various": "Αν δεν το βλέπετε στη λίστα, ρωτήστε μας — πιθανότατα το κατασκευάζουμε ή μπορούμε να το αναπτύξουμε.",
+      "sub.cta.title.various": "Δεν βρίσκετε αυτό που χρειάζεστε;",
+      "sub.cta.sub.various": "Στείλτε μας ένα δείγμα ή σχέδιο και θα αναπτύξουμε το προφίλ.",
+
+      "cta.contact.btn": "Επικοινωνήστε μαζί μας →"
+    }
+  };
+
+  var STORE_KEY = "pplastic-lang";
+
+  function apply(lang) {
+    if (!I18N[lang]) lang = "en";
+    document.documentElement.lang = lang;
+    document.documentElement.classList.toggle("lang-el", lang === "el");
+
+    var nodes = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < nodes.length; i++) {
+      var node = nodes[i];
+      var key = node.getAttribute("data-i18n");
+      if (I18N[lang][key] == null) continue;
+      var tag = node.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA") {
+        node.placeholder = I18N[lang][key];
+      } else {
+        node.innerHTML = I18N[lang][key];
+      }
+    }
+
+    var btns = document.querySelectorAll("[data-lang-btn]");
+    for (var j = 0; j < btns.length; j++) {
+      var isActive = btns[j].getAttribute("data-lang-btn") === lang;
+      btns[j].classList.toggle("active", isActive);
+      btns[j].setAttribute("aria-pressed", isActive ? "true" : "false");
+    }
+
+    try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+  }
+
+  function init() {
+    var lang = "en";
+    try { lang = localStorage.getItem(STORE_KEY) || "en"; } catch (e) {}
+    apply(lang);
+
+    var btns = document.querySelectorAll("[data-lang-btn]");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function (e) {
+        e.preventDefault();
+        apply(this.getAttribute("data-lang-btn"));
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
