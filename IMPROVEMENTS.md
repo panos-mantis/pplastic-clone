@@ -21,8 +21,12 @@ Status legend: ✅ done · 🟡 partly done · ⬜ not started
 - ✅ Per-page `<title>`, description, canonical, Open Graph/Twitter tags, SVG favicon.
 - ✅ Accessibility basics: skip link, `<main>` landmark, focus-visible styles,
   `aria-expanded` on the menu toggle, Escape closes the menu, reduced-motion support.
-- ✅ All 11 product photos now used (4 were sitting unused; the rolling-shutter photo
+- ✅ All product photos used (4 were sitting unused; the rolling-shutter photo
   was wrongly on the Rub rails page and now lives on Technical).
+- ✅ Marine sub-pages carry the **original site's 16 profile drawings**, captions and real
+  specs (materials, size ranges) from pplastic.gr/html/{rub_rails,inflatable,heavy_duty,various}.html.
+- ✅ The real **2026 PDF catalogue** is in `assets/docs/` and downloadable from the
+  Catalogue page and every marine sub-page.
 - ⬜ High-resolution photography, trust signals, deeper product content, cookie/privacy.
 
 ### Fixed bugs from the previous version
@@ -83,13 +87,13 @@ in all 11 pages (or see #9 below). Shared behaviour lives in `js/main.js`
   "Made in Athens, Greece", "Custom profiles to drawing".
 
 ### 6. Deepen thin pages  ·  Priority: MEDIUM  ·  🟡
-- ✅ Marine sub-pages now have a feature checklist + photo; Rub rails shows a dimensioned
-  profile drawing; Technical has an applications gallery; Exhibitions has a "how to meet
+- ✅ Marine sub-pages: real spec lines + 4 dimensioned profile drawings each (from the
+  original site); Technical has an applications gallery; Exhibitions has a "how to meet
   us" section.
-- ⬜ Real specs per product (materials, dimensions, colours, hardness), ideally a table
-  per profile with its drawing.
+- ⬜ Full spec tables per profile (hardness, colours, exact dimensions) — the PDF catalogue
+  has more detail that could be brought onto the pages.
 - ⬜ Exhibitions calendar (show, dates, city, stand number).
-- ⬜ A downloadable PDF catalogue (the Catalogue CTA currently goes to Contact).
+- ✅ Downloadable PDF catalogue.
 
 ### 7. Polish  ·  Priority: LOW  ·  🟡
 - ✅ Lazy-loaded images, scroll-reveal, focus states, skip link, sticky header shadow,
@@ -128,7 +132,6 @@ in all 11 pages (or see #9 below). Shared behaviour lives in `js/main.js`
 - Any certifications (ISO 9001, etc.) we're cleared to show?
 - Are the home hero facts and stats accurate as written (see #5)?
 - Should Greek get its own URLs for search, or is the toggle enough for now?
-- Should the "Catalogue" CTA serve a real PDF, or stay as a contact prompt?
 
 ---
 
@@ -150,5 +153,6 @@ pplastic-clone/
 ├── css/style.css         # design tokens at the top (:root)
 ├── js/i18n.js            # EN/ΕΛ dictionary + toggle + window.pplasticT()
 ├── js/main.js            # mobile menu, header shadow, scroll-reveal
-└── assets/images/        # 11 product photos (240×180), favicon.svg, old logo PNG
+├── assets/images/        # product photos + profile drawings (all 240×180), favicon.svg, old logo PNG
+└── assets/docs/          # pplastic-catalogue-2026.pdf
 ```

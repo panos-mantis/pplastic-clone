@@ -554,6 +554,9 @@ a:hover { color: var(--primary); }
 }
 .gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: var(--bg-alt); }
 .gallery figcaption { padding: 10px 6px 4px; font-size: 0.88rem; font-weight: 600; color: var(--ink); }
+.gallery.four { grid-template-columns: repeat(4, 1fr); }
+/* Line drawings: show the whole drawing on white instead of cropping */
+.gallery .contain img, .photo.contain img { object-fit: contain; background: #fff; }
 
 /* Checklist */
 .checklist { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
@@ -702,6 +705,7 @@ a:hover { color: var(--primary); }
 .cta-band h2 { color: #fff; margin: 0 0 8px; font-size: clamp(1.5rem, 3vw, 2.1rem); letter-spacing: -0.02em; }
 .cta-band p { margin: 0; color: rgba(255, 255, 255, 0.8); max-width: 560px; }
 .cta-band .btn { flex: 0 0 auto; }
+.cta-actions { display: flex; flex-wrap: wrap; gap: 12px; flex: 0 0 auto; }
 .section > .container > .cta-band:only-child { margin-top: 0; }
 
 /* ---------- Contact ---------- */
@@ -1004,7 +1008,7 @@ a:hover { color: var(--primary); }
 }
 @media (max-width: 920px) {
   .cards, .features { grid-template-columns: repeat(2, 1fr); }
-  .cards.four { grid-template-columns: repeat(2, 1fr); }
+  .cards.four, .gallery.four { grid-template-columns: repeat(2, 1fr); }
   .stats { grid-template-columns: repeat(2, 1fr); row-gap: 32px; }
   .stat:nth-child(3) { border-left: none; }
   .split { grid-template-columns: 1fr; gap: 56px; }
