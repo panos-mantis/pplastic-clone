@@ -73,6 +73,8 @@ a:hover { color: var(--accent); }
   letter-spacing: 0.5px;
   color: var(--primary);
   font-size: 1.25rem;
+  position: relative;
+  z-index: 1001;
 }
 .brand img { height: 38px; width: auto; }
 .brand .brand-sub {
@@ -153,6 +155,7 @@ a:hover { color: var(--accent); }
   visibility: hidden;
   transform: translateY(-8px);
   transition: all 0.2s ease;
+  z-index: 1002;
 }
 .dropdown:hover .dropdown-menu,
 .dropdown:focus-within .dropdown-menu {
