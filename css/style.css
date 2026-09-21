@@ -558,6 +558,17 @@ a:hover { color: var(--primary); }
 /* Line drawings: show the whole drawing on white instead of cropping */
 .gallery .contain img, .photo.contain img { object-fit: contain; background: #fff; }
 
+/* Grouped product range: a subheading above each gallery */
+.range-group + .range-group { margin-top: 56px; }
+.range-group h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.range-group .gallery { margin-top: 0; }
+
 /* Checklist */
 .checklist { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
 .checklist li { display: flex; gap: 12px; align-items: flex-start; font-weight: 500; }
