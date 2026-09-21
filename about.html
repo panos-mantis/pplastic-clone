@@ -3,82 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Papadopoulos Plastic Profiles S.A. | About</title>
-  <meta name="description" content="Papadopoulos Plastic Profiles S.A. — specialized in PVC extrusion since 1962. Specializing in custom plastic profiles and extrusion solutions for industrial applications.">
-  <meta property="og:title" content="About Papadopoulos Plastic Profiles S.A.">
-  <meta property="og:description" content="Specialized in PVC extrusion since 1962. Custom plastic profiles for industrial applications. Contact us for quotes.">
-  <meta property="og:image" content="assets/images/pplastic-white.png">
+  <title>About us | pplastic — Papadopoulos Plastic Profiles S.A.</title>
+  <meta name="description" content="A family business in PVC extrusion since 1962. Learn about Papadopoulos Plastic Profiles S.A., a reliable and flexible partner for plastic profiles.">
+  <link rel="canonical" href="https://pplastic.gr/about.html">
+  <meta name="theme-color" content="#0b3d4f">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <meta property="og:site_name" content="pplastic">
+  <meta property="og:title" content="About us | pplastic — Papadopoulos Plastic Profiles S.A.">
+  <meta property="og:description" content="A family business in PVC extrusion since 1962. Learn about Papadopoulos Plastic Profiles S.A., a reliable and flexible partner for plastic profiles.">
+  <meta property="og:image" content="https://pplastic.gr/assets/images/extruder-die.jpg">
   <meta property="og:url" content="https://pplastic.gr/about.html">
   <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About pplastic">
-  <meta name="twitter:description" content="Specialized in PVC extrusion since 1962. Custom plastic profiles for industrial applications.">
-  <meta name="twitter:image" content="assets/images/pplastic-white.png">
-  <link rel="icon" href="assets/images/pplastic-white.png" type="image/png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="About us | pplastic — Papadopoulos Plastic Profiles S.A.">
+  <meta name="twitter:description" content="A family business in PVC extrusion since 1962. Learn about Papadopoulos Plastic Profiles S.A., a reliable and flexible partner for plastic profiles.">
+  <meta name="twitter:image" content="https://pplastic.gr/assets/images/extruder-die.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand">
-        <img src="assets/images/pplastic-white.png" alt="pplastic logo" style="background:var(--primary);border-radius:8px;padding:4px;">
-        <span>pplastic<br><span class="brand-sub">Plastic Profiles S.A.</span></span>
+      <a href="index.html" class="brand" aria-label="pplastic — Papadopoulos Plastic Profiles S.A.">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="currentColor"/><path d="M17 15h-4v17h4M23 8h4v17h-4" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="brand-text"><span class="brand-name">pplastic</span><span class="brand-sub">Plastic Profiles S.A.</span></span>
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span></button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-        <li><a href="about.html" class="active" data-i18n="nav.about">About us</a></li>
-        <li class="dropdown"><a href="marine.html" data-i18n="nav.marine">Marine</a><ul class="dropdown-menu">
-          <li><a href="rub-rails.html">Rub rails</a></li><li><a href="inflatable.html">Inflatable</a></li>
-          <li><a href="heavy-duty.html">Heavy duty</a></li><li><a href="various.html">Various</a></li></ul></li>
-        <li><a href="technical.html" data-i18n="nav.technical">Technical</a></li>
-        <li><a href="exhibitions.html" data-i18n="nav.exhibitions">Exhibitions</a></li>
-        <li><a href="catalogue.html" data-i18n="nav.catalogue">Catalogue</a></li>
-        <li><a href="contact.html" data-i18n="nav.contact">Contact us</a></li>
-        <li class="lang-switch">
-          <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
-          <button type="button" class="lang-btn" data-lang-btn="el" aria-pressed="false">ΕΛ</button>
-        </li>
-      </ul>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+
+      <nav aria-label="Main">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="about.html" class="active" aria-current="page" data-i18n="nav.about">About us</a></li>
+          <li class="dropdown">
+            <a href="marine.html" data-i18n="nav.marine">Marine</a>
+            <ul class="dropdown-menu">
+              <li><a href="rub-rails.html" data-i18n="bc.rubrails">Rub rails</a></li>
+              <li><a href="inflatable.html" data-i18n="bc.inflatable">Inflatable</a></li>
+              <li><a href="heavy-duty.html" data-i18n="bc.heavyduty">Heavy duty</a></li>
+              <li><a href="various.html" data-i18n="bc.various">Various</a></li>
+            </ul>
+          </li>
+          <li><a href="technical.html" data-i18n="nav.technical">Technical</a></li>
+          <li><a href="exhibitions.html" data-i18n="nav.exhibitions">Exhibitions</a></li>
+          <li><a href="catalogue.html" data-i18n="nav.catalogue">Catalogue</a></li>
+          <li class="nav-cta"><a href="contact.html" data-i18n="nav.contact">Contact us</a></li>
+          <li class="lang-switch" role="group" aria-label="Language">
+            <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+            <button type="button" class="lang-btn" data-lang-btn="el" aria-pressed="false">ΕΛ</button>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 
+  <main id="main">
+
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow" data-i18n="about.hero.eyebrow">About us</span>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html" data-i18n="bc.home">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page" data-i18n="bc.about">About us</span></nav>
       <h1 data-i18n="about.hero.title">A family of extrusion, since 1962</h1>
       <p data-i18n="about.hero.sub">Papadopoulos Plastic Profiles S.A. — a reliable and flexible partner in PVC extrusion for over half a century.</p>
     </div>
   </section>
 
   <section class="section">
+    <div class="container split">
+      <div class="reveal">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="about.story.eyebrow">Our story</span>
+          <h2 data-i18n="about.story.title">Six decades of PVC extrusion</h2>
+        </div>
+        <div class="lead">
+          <p data-i18n="lead1">Our company is specialized in PVC extrusion for over half a century.</p>
+          <p data-i18n="lead2">We manufacture plastic profiles for a wide range of applications, using the highest quality of raw material and the best standards in our production procedure.</p>
+          <p data-i18n="lead3">For comprehensive information about our products, please browse our web site.</p>
+          <p class="muted" data-i18n="lead4">Welcome to Papadopoulos Plastic Profiles S.A. — a reliable and flexible partner.</p>
+        </div>
+      </div>
+      <figure class="photo reveal">
+        <img src="assets/images/extruder-die.jpg" alt="Extrusion die on the production line" width="240" height="180" loading="lazy">
+        <figcaption data-i18n="about.photo.cap">Every profile starts with a precision extrusion die.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section alt">
     <div class="container">
-      <div class="breadcrumb"><a href="index.html" data-i18n="bc.home">Home</a> / <span data-i18n="bc.about">About us</span></div>
-      <div class="media-ph warm" style="margin-bottom:36px;"><span class="ph-label"><span class="ph-ico">🏭</span>Our factory &amp; extrusion lines</span></div>
-      <div class="lead">
-        <p data-i18n="lead1">Our company is specialized in PVC extrusion for over half a century.</p>
-        <p data-i18n="lead2">We manufacture plastic profiles for a wide range of applications, using the highest quality of raw material and the best standards in our production procedure.</p>
-        <p data-i18n="lead3">For comprehensive information about our products, please browse our web site.</p>
-        <p class="muted" data-i18n="lead4">Welcome to Papadopoulos Plastic Profiles S.A., a reliable and flexible partner.</p>
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="index.cap.eyebrow">Why pplastic</span>
+        <h2 data-i18n="index.cap.title">Built on decades of extrusion expertise</h2>
+      </div>
+      <div class="features">
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3 data-i18n="index.feat1.title">60+ years of know-how</h3><p data-i18n="index.feat1.sub">Continuous extrusion experience since 1962, refined across generations.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="m2 13 10 5 10-5"/></svg></div><h3 data-i18n="index.feat2.title">Premium raw material</h3><p data-i18n="index.feat2.sub">Only the highest quality compounds enter our production lines.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="8" r="3.5"/><path d="M21 20v-1a4 4 0 0 0-3-3.87M16 4.13a4 4 0 0 1 0 7.75"/></svg></div><h3 data-i18n="index.feat3.title">Flexible partnership</h3><p data-i18n="index.feat3.sub">Custom profiles and volumes tailored to each client's needs.</p></div>
+      </div>
+
+      <div class="cta-band reveal">
+        <div>
+          <h2 data-i18n="index.cta.title">Let's build your next profile together</h2>
+          <p data-i18n="index.cta.sub">Tell us about your application — we'll help you find or develop the right extruded solution.</p>
+        </div>
+        <a href="contact.html" class="btn btn-primary" data-i18n="index.cta.btn">Contact us →</a>
       </div>
     </div>
   </section>
 
+
+  </main>
+
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div><div class="footer-brand"><img src="assets/images/pplastic-white.png" alt="pplastic"><span class="name">pplastic</span></div>
-          <p data-i18n="footer.tagline">Papadopoulos Plastic Profiles S.A. — specialized in PVC extrusion since 1962. A reliable and flexible partner for plastic profiles worldwide.</p></div>
-        <div><h4 data-i18n="footer.company">Company</h4><ul><li><a href="index.html" data-i18n="nav.home">Home</a></li><li><a href="about.html" data-i18n="nav.about">About us</a></li><li><a href="exhibitions.html" data-i18n="nav.exhibitions">Exhibitions</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact us</a></li></ul></div>
-        <div><h4 data-i18n="footer.products">Products</h4><ul><li><a href="marine.html" data-i18n="nav.marine">Marine</a></li><li><a href="technical.html" data-i18n="nav.technical">Technical</a></li><li><a href="catalogue.html" data-i18n="nav.catalogue">Catalogue</a></li></ul></div>
-        <div><h4 data-i18n="footer.getintouch">Get in touch</h4><ul><li><a href="mailto:pplastic@otenet.gr">pplastic@otenet.gr</a></li><li><a href="tel:+302103460579">+30 210 3460579</a></li><li>2 Salaminias Str., Athens</li></ul></div>
+        <div>
+          <div class="footer-brand"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="currentColor"/><path d="M17 15h-4v17h4M23 8h4v17h-4" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">pplastic</span></div>
+          <p data-i18n="footer.tagline">Papadopoulos Plastic Profiles S.A. — specialized in PVC extrusion since 1962. A reliable and flexible partner for plastic profiles worldwide.</p>
+          <span class="footer-since" data-i18n="footer.since">Extruding since 1962</span>
+        </div>
+        <div>
+          <h4 data-i18n="footer.company">Company</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About us</a></li>
+            <li><a href="exhibitions.html" data-i18n="nav.exhibitions">Exhibitions</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.products">Products</h4>
+          <ul>
+            <li><a href="marine.html" data-i18n="nav.marine">Marine</a></li>
+            <li><a href="technical.html" data-i18n="nav.technical">Technical</a></li>
+            <li><a href="catalogue.html" data-i18n="nav.catalogue">Catalogue</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.getintouch">Get in touch</h4>
+          <ul>
+            <li><a href="mailto:pplastic@otenet.gr">pplastic@otenet.gr</a></li>
+            <li><a href="tel:+302103460579">+30 210 3460579</a></li>
+            <li data-i18n="footer.address">2 Salaminias Str., 11855 Athens</li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-bottom"><span data-i18n="footer.copyright">© 1962–2026 Papadopoulos Plastic Profiles S.A. — pplastic.gr</span><span data-i18n="footer.since">Extruding since 1962</span></div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 1962–2026 Papadopoulos Plastic Profiles S.A. — pplastic.gr</span>
+        <span data-i18n="footer.made">PVC extrusion · Athens, Greece</span>
+      </div>
     </div>
   </footer>
   <script src="js/i18n.js"></script>
-  <script>const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');t.addEventListener('click',()=>l.classList.toggle('open'));l.addEventListener('click',e=>{if(e.target.tagName==='A')l.classList.remove('open');});</script>
+  <script src="js/main.js"></script>
 </body>
 </html>
