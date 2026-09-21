@@ -3,40 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catalogue — pplastic</title>
+  <title>Product Catalogue | pplastic — Papadopoulos Plastic Profiles S.A.</title>
+  <meta name="description" content="Browse the pplastic range of extruded PVC profiles — marine, technical, coils and bars. Request the full PDF catalogue.">
+  <link rel="canonical" href="https://pplastic.gr/catalogue.html">
+  <meta name="theme-color" content="#0b3d4f">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <meta property="og:site_name" content="pplastic">
+  <meta property="og:title" content="Product Catalogue | pplastic — Papadopoulos Plastic Profiles S.A.">
+  <meta property="og:description" content="Browse the pplastic range of extruded PVC profiles — marine, technical, coils and bars. Request the full PDF catalogue.">
+  <meta property="og:image" content="https://pplastic.gr/assets/images/plastic-profile-coil.jpg">
+  <meta property="og:url" content="https://pplastic.gr/catalogue.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Product Catalogue | pplastic — Papadopoulos Plastic Profiles S.A.">
+  <meta name="twitter:description" content="Browse the pplastic range of extruded PVC profiles — marine, technical, coils and bars. Request the full PDF catalogue.">
+  <meta name="twitter:image" content="https://pplastic.gr/assets/images/plastic-profile-coil.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand">
-        <img src="assets/images/pplastic-white.png" alt="pplastic logo" style="background:var(--primary);border-radius:8px;padding:4px;">
-        <span>pplastic<br><span class="brand-sub">Plastic Profiles S.A.</span></span>
+      <a href="index.html" class="brand" aria-label="pplastic — Papadopoulos Plastic Profiles S.A.">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="currentColor"/><path d="M17 15h-4v17h4M23 8h4v17h-4" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="brand-text"><span class="brand-name">pplastic</span><span class="brand-sub">Plastic Profiles S.A.</span></span>
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span></button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-        <li><a href="about.html" data-i18n="nav.about">About us</a></li>
-        <li class="dropdown"><a href="marine.html" data-i18n="nav.marine">Marine</a><ul class="dropdown-menu">
-          <li><a href="rub-rails.html">Rub rails</a></li><li><a href="inflatable.html">Inflatable</a></li>
-          <li><a href="heavy-duty.html">Heavy duty</a></li><li><a href="various.html">Various</a></li></ul></li>
-        <li><a href="technical.html" data-i18n="nav.technical">Technical</a></li>
-        <li><a href="exhibitions.html" data-i18n="nav.exhibitions">Exhibitions</a></li>
-        <li><a href="catalogue.html" class="active" data-i18n="nav.catalogue">Catalogue</a></li>
-        <li><a href="contact.html" data-i18n="nav.contact">Contact us</a></li>
-        <li class="lang-switch">
-          <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
-          <button type="button" class="lang-btn" data-lang-btn="el" aria-pressed="false">ΕΛ</button>
-        </li>
-      </ul>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+
+      <nav aria-label="Main">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About us</a></li>
+          <li class="dropdown">
+            <a href="marine.html" data-i18n="nav.marine">Marine</a>
+            <ul class="dropdown-menu">
+              <li><a href="rub-rails.html" data-i18n="bc.rubrails">Rub rails</a></li>
+              <li><a href="inflatable.html" data-i18n="bc.inflatable">Inflatable</a></li>
+              <li><a href="heavy-duty.html" data-i18n="bc.heavyduty">Heavy duty</a></li>
+              <li><a href="various.html" data-i18n="bc.various">Various</a></li>
+            </ul>
+          </li>
+          <li><a href="technical.html" data-i18n="nav.technical">Technical</a></li>
+          <li><a href="exhibitions.html" data-i18n="nav.exhibitions">Exhibitions</a></li>
+          <li><a href="catalogue.html" class="active" aria-current="page" data-i18n="nav.catalogue">Catalogue</a></li>
+          <li class="nav-cta"><a href="contact.html" data-i18n="nav.contact">Contact us</a></li>
+          <li class="lang-switch" role="group" aria-label="Language">
+            <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+            <button type="button" class="lang-btn" data-lang-btn="el" aria-pressed="false">ΕΛ</button>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 
+  <main id="main">
+
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow" data-i18n="catalogue.hero.eyebrow">Catalogue</span>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html" data-i18n="bc.home">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page" data-i18n="bc.catalogue">Catalogue</span></nav>
       <h1 data-i18n="catalogue.hero.title">Our product range</h1>
       <p data-i18n="catalogue.hero.sub">Browse the profiles we manufacture — from marine rails to technical and custom sections.</p>
     </div>
@@ -44,33 +74,75 @@
 
   <section class="section">
     <div class="container">
-      <div class="breadcrumb"><a href="index.html" data-i18n="bc.home">Home</a> / <span data-i18n="bc.catalogue">Catalogue</span></div>
       <div class="cards">
-        <article class="card"><img src="assets/images/plastic-profiles_1.jpg" alt="Marine profiles"><div class="card-body"><h3><a href="marine.html" data-i18n="catalogue.card1.title">Marine</a></h3><p data-i18n="catalogue.card1.sub">Rub rails, inflatable, heavy-duty and various marine profiles.</p></div></article>
-        <article class="card"><img src="assets/images/pvc-granules.jpg" alt="Technical profiles"><div class="card-body"><h3><a href="technical.html" data-i18n="catalogue.card2.title">Technical</a></h3><p data-i18n="catalogue.card2.sub">Custom extruded sections to drawing and specification.</p></div></article>
-        <article class="card"><img src="assets/images/plastic-profile-coil.jpg" alt="Coiled profiles"><div class="card-body"><h3 data-i18n="catalogue.card3.title">Coils &amp; bars</h3><p data-i18n="catalogue.card3.sub">Supplied in the length and format your production needs.</p></div></article>
+        <article class="card reveal">
+          <div class="card-media"><img src="assets/images/rub-rails-for-boats.jpg" alt="Boat fitted with PVC rub rails" width="240" height="180" loading="lazy"></div>
+          <div class="card-body"><h3><a href="marine.html" data-i18n="catalogue.card1.title">Marine</a></h3><p data-i18n="catalogue.card1.sub">Rub rails, inflatable, heavy-duty and various marine profiles.</p><span class="card-more" data-i18n="card.more">View range</span></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-media"><img src="assets/images/plastic-weather-stripping-with-pile-for-rolling-shutters--guides.jpg" alt="Coils of weather stripping with pile" width="240" height="180" loading="lazy"></div>
+          <div class="card-body"><h3><a href="technical.html" data-i18n="catalogue.card2.title">Technical</a></h3><p data-i18n="catalogue.card2.sub">Custom extruded sections to drawing and specification.</p><span class="card-more" data-i18n="card.more">View range</span></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-media"><img src="assets/images/plastic-profile-coil.jpg" alt="Coiled plastic profile" width="240" height="180" loading="lazy"></div>
+          <div class="card-body"><h3 data-i18n="catalogue.card3.title">Coils &amp; bars</h3><p data-i18n="catalogue.card3.sub">Supplied in the length and format your production needs.</p></div>
+        </article>
       </div>
-      <div class="cta-band" style="margin-top:40px;">
-        <h2 data-i18n="catalogue.cta.title">Need the full catalogue?</h2>
-        <p data-i18n="catalogue.cta.sub">Request our latest PDF catalogue and product datasheets.</p>
+
+      <div class="cta-band reveal">
+        <div>
+          <h2 data-i18n="catalogue.cta.title">Need the full catalogue?</h2>
+          <p data-i18n="catalogue.cta.sub">Request our latest PDF catalogue and product datasheets.</p>
+        </div>
         <a href="contact.html" class="btn btn-primary" data-i18n="catalogue.cta.btn">Request catalogue →</a>
       </div>
     </div>
   </section>
 
+
+  </main>
+
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div><div class="footer-brand"><img src="assets/images/pplastic-white.png" alt="pplastic"><span class="name">pplastic</span></div>
-          <p data-i18n="footer.tagline">Papadopoulos Plastic Profiles S.A. — specialized in PVC extrusion since 1962. A reliable and flexible partner for plastic profiles worldwide.</p></div>
-        <div><h4 data-i18n="footer.company">Company</h4><ul><li><a href="index.html" data-i18n="nav.home">Home</a></li><li><a href="about.html" data-i18n="nav.about">About us</a></li><li><a href="exhibitions.html" data-i18n="nav.exhibitions">Exhibitions</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact us</a></li></ul></div>
-        <div><h4 data-i18n="footer.products">Products</h4><ul><li><a href="marine.html" data-i18n="nav.marine">Marine</a></li><li><a href="technical.html" data-i18n="nav.technical">Technical</a></li><li><a href="catalogue.html" data-i18n="nav.catalogue">Catalogue</a></li></ul></div>
-        <div><h4 data-i18n="footer.getintouch">Get in touch</h4><ul><li><a href="mailto:pplastic@otenet.gr">pplastic@otenet.gr</a></li><li><a href="tel:+302103460579">+30 210 3460579</a></li><li>2 Salaminias Str., Athens</li></ul></div>
+        <div>
+          <div class="footer-brand"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="currentColor"/><path d="M17 15h-4v17h4M23 8h4v17h-4" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">pplastic</span></div>
+          <p data-i18n="footer.tagline">Papadopoulos Plastic Profiles S.A. — specialized in PVC extrusion since 1962. A reliable and flexible partner for plastic profiles worldwide.</p>
+          <span class="footer-since" data-i18n="footer.since">Extruding since 1962</span>
+        </div>
+        <div>
+          <h4 data-i18n="footer.company">Company</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About us</a></li>
+            <li><a href="exhibitions.html" data-i18n="nav.exhibitions">Exhibitions</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.products">Products</h4>
+          <ul>
+            <li><a href="marine.html" data-i18n="nav.marine">Marine</a></li>
+            <li><a href="technical.html" data-i18n="nav.technical">Technical</a></li>
+            <li><a href="catalogue.html" data-i18n="nav.catalogue">Catalogue</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.getintouch">Get in touch</h4>
+          <ul>
+            <li><a href="mailto:pplastic@otenet.gr">pplastic@otenet.gr</a></li>
+            <li><a href="tel:+302103460579">+30 210 3460579</a></li>
+            <li data-i18n="footer.address">2 Salaminias Str., 11855 Athens</li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-bottom"><span data-i18n="footer.copyright">© 1962–2026 Papadopoulos Plastic Profiles S.A. — pplastic.gr</span><span data-i18n="footer.since">Extruding since 1962</span></div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 1962–2026 Papadopoulos Plastic Profiles S.A. — pplastic.gr</span>
+        <span data-i18n="footer.made">PVC extrusion · Athens, Greece</span>
+      </div>
     </div>
   </footer>
   <script src="js/i18n.js"></script>
-  <script>const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');t.addEventListener('click',()=>l.classList.toggle('open'));l.addEventListener('click',e=>{if(e.target.tagName==='A')l.classList.remove('open');});</script>
+  <script src="js/main.js"></script>
 </body>
 </html>
