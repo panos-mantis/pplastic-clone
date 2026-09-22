@@ -1,0 +1,14 @@
+# robots.txt for pplastic.gr
+# Papadopoulos Plastic Profiles S.A.
+
+User-agent: *
+Allow: /
+
+# The site is bilingual with a separate URL per language:
+#   English (default) ... https://pplastic.gr/
+#   Greek ............... https://pplastic.gr/el/
+# Both are meant to be crawled and indexed; they are paired with
+# reciprocal hreflang tags in each page <head> and in the sitemap.
+# The catalogue PDF is intentionally indexable.
+
+Sitemap: https://pplastic.gr/sitemap.xml
