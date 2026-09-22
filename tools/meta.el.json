@@ -1,0 +1,72 @@
+{
+  "_comment": "Greek <head> metadata per page. Body copy comes from js/i18n-data.js; only head strings live here. Edit freely and re-run `node tools/build-el.mjs`.",
+
+  "_org": {
+    "description": "Οικογενειακή βιομηχανία προφίλ PVC για ναυτιλιακές, τεχνικές και βιομηχανικές εφαρμογές, με έδρα την Αθήνα και εξειδίκευση στην παραγωγή προφίλ PVC από το 1962.",
+    "addressLocality": "Αθήνα",
+    "streetAddress": "Σαλαμινίας 2",
+    "logoCaption": "pplastic — Papadopoulos Plastic Profiles S.A.",
+    "websiteDescription": "Papadopoulos Plastic Profiles S.A. — παραγωγή προφίλ PVC από το 1962."
+  },
+
+  "index.html": {
+    "title": "pplastic — Παραγωγή προφίλ PVC στην Αθήνα από το 1962",
+    "description": "Papadopoulos Plastic Profiles S.A. — εξειδίκευση στην παραγωγή προφίλ PVC από το 1962. Πλαστικά προφίλ για ναυτιλιακές, τεχνικές και βιομηχανικές εφαρμογές.",
+    "imageAlt": "Συλλογή προφίλ PVC της pplastic"
+  },
+  "about.html": {
+    "title": "Η εταιρεία μας | pplastic — Πλαστικά Προφίλ",
+    "description": "Οικογενειακή επιχείρηση στην παραγωγή προφίλ PVC από το 1962. Γνωρίστε την Papadopoulos Plastic Profiles S.A., αξιόπιστο συνεργάτη για πλαστικά προφίλ.",
+    "imageAlt": "Μήτρα στη γραμμή παραγωγής της pplastic"
+  },
+  "marine.html": {
+    "title": "Ναυτιλιακά προφίλ PVC & κουπαστές | pplastic",
+    "description": "Ναυτιλιακά προφίλ PVC: προστατευτικά κουπαστής, μπούκλες για φουσκωτά, ενισχυμένα τμήματα βαριάς χρήσης και ειδικές διατομές για ναυπηγεία.",
+    "imageAlt": "Σκάφος με προστατευτικά κουπαστής από PVC"
+  },
+  "rub-rails.html": {
+    "title": "Προστατευτικά κουπαστής για σκάφη | pplastic",
+    "description": "Προστατευτικά κουπαστής από PVC που προστατεύουν κύτος, κατάστρωμα και προβλήτες από κρούσεις και τριβή. Σε ποικιλία διατομών και χρωμάτων.",
+    "imageAlt": "Σκάφος με προστατευτικά κουπαστής από PVC"
+  },
+  "inflatable.html": {
+    "title": "Μπούκλες για φουσκωτά σκάφη | pplastic",
+    "description": "Προστατευτικές μπούκλες και προφίλ PVC για φουσκωτά σκάφη και RIB, κατασκευασμένα με σταθερές ανοχές.",
+    "imageAlt": "Φουσκωτό σκάφος με προστατευτικές μπούκλες PVC"
+  },
+  "heavy-duty.html": {
+    "title": "Προφίλ πρόσκρουσης βαριάς χρήσης | pplastic",
+    "description": "Προφίλ πρόσκρουσης PVC βαριάς χρήσης για επαγγελματικά σκάφη και σκάφη εργασίας — διατομές D και ενισχυμένα τμήματα.",
+    "imageAlt": "Πλώρη σκάφους εργασίας με προφίλ πρόσκρουσης βαριάς χρήσης"
+  },
+  "various.html": {
+    "title": "Διάφορα ναυτιλιακά προφίλ | pplastic",
+    "description": "Περιθώρια, στεγανοποιητικά, τζαμιλίκια και ειδικά προφίλ PVC για ναυτιλιακές εφαρμογές.",
+    "imageAlt": "Προφίλ τζαμιλικιών για ναυτιλιακές εφαρμογές από PVC"
+  },
+  "technical.html": {
+    "title": "Ειδικά τεχνικά προφίλ PVC | pplastic",
+    "description": "Ειδικά τεχνικά προφίλ PVC βάσει σχεδίου ή δείγματος — σε οποιοδήποτε χρώμα, σε μπάρες ή ρολά.",
+    "imageAlt": "Μήτρα στη γραμμή παραγωγής της pplastic"
+  },
+  "catalogue.html": {
+    "title": "Κατάλογος προφίλ PVC | pplastic",
+    "description": "Δείτε τη γκάμα προφίλ PVC της pplastic — ναυτιλιακά, τεχνικά, ρολά και μπάρες. Ζητήστε τον πλήρη κατάλογο σε PDF.",
+    "imageAlt": "Ρολό προφίλ PVC"
+  },
+  "exhibitions.html": {
+    "title": "Εκθέσεις & εμπορικές διοργανώσεις | pplastic",
+    "description": "Συναντήστε την pplastic σε ναυτιλιακές εκθέσεις και εκθέσεις πλαστικών. Επικοινωνήστε μαζί μας για το πρόγραμμα και το περίπτερό μας.",
+    "imageAlt": "Συλλογή προφίλ PVC της pplastic"
+  },
+  "contact.html": {
+    "title": "Επικοινωνία | pplastic — Πλαστικά Προφίλ",
+    "description": "Επικοινωνήστε με την Papadopoulos Plastic Profiles S.A., Σαλαμινίας 2, 11855 Αθήνα. Τηλ. +30 210 3460579, pplastic@otenet.gr.",
+    "imageAlt": "Συλλογή προφίλ PVC της pplastic"
+  },
+  "404.html": {
+    "title": "Η σελίδα δεν βρέθηκε | pplastic",
+    "description": "Η σελίδα που αναζητάτε δεν είναι διαθέσιμη. Δείτε τη γκάμα προφίλ PVC της pplastic ή επικοινωνήστε μαζί μας.",
+    "imageAlt": ""
+  }
+}
