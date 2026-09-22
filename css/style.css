@@ -451,6 +451,7 @@ a:hover { color: var(--primary); }
   letter-spacing: -0.03em;
 }
 .page-hero p { margin: 0; color: rgba(255, 255, 255, 0.8); max-width: 640px; font-size: 1.08rem; }
+.page-hero .hero-download { margin-top: 28px; }
 
 /* Breadcrumb (lives inside the page hero) */
 .breadcrumb {
@@ -633,6 +634,9 @@ a:hover { color: var(--primary); }
 }
 .card-more::after { content: "→"; transition: transform 0.2s var(--ease); }
 .card:hover .card-more::after { transform: translateX(4px); }
+
+/* ---------- Exhibition link ---------- */
+.show-btn { margin-top: 28px; }
 
 /* ---------- Feature grid (capabilities) ---------- */
 .features {
@@ -844,6 +848,38 @@ a:hover { color: var(--primary); }
 .map-card .pin svg { width: 24px; height: 24px; }
 .map-card strong { display: block; font-size: 1.02rem; }
 .map-card span { font-size: 0.88rem; opacity: 0.85; }
+
+/* Compact contact page: fit details + form in one screen */
+.page-hero.compact { padding: 28px 0 36px; }
+.page-hero.compact .breadcrumb { margin-bottom: 18px; }
+.page-hero.compact h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: 8px; }
+.section.compact { padding: 40px 0 56px; }
+.section.compact .contact-grid { gap: 40px; }
+.section.compact .info-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
+.section.compact .info-list li { padding: 12px 0; gap: 12px; grid-template-columns: 36px 1fr; }
+.section.compact .info-list li:nth-last-child(2) { border-bottom: none; }
+.section.compact .info-list .i { width: 36px; height: 36px; border-radius: 10px; }
+.section.compact .info-list .i svg { width: 18px; height: 18px; }
+.section.compact .info-list .v { font-size: 0.98rem; }
+.section.compact .hours { flex-direction: column; gap: 0; }
+.section.compact .map-card { margin-top: 16px; padding: 14px 18px; gap: 14px; }
+.section.compact .map-card .pin { width: 40px; height: 40px; }
+.section.compact .map-card .pin svg { width: 20px; height: 20px; }
+.section.compact .persons { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
+.section.compact .persons h3 { grid-column: 1 / -1; }
+.section.compact .person { padding: 10px 0; }
+.section.compact .person .avatar { width: 40px; height: 40px; font-size: 0.85rem; }
+.section.compact .form-card { padding: 28px; }
+.section.compact .form-card > p { margin-bottom: 18px; }
+.section.compact .field { margin-bottom: 14px; }
+.section.compact .field label { margin-bottom: 5px; }
+.section.compact .field input, .section.compact .field textarea { padding: 10px 14px; }
+.section.compact .field textarea { min-height: 96px; }
+@media (max-width: 540px) {
+  .section.compact .info-list, .section.compact .persons { grid-template-columns: 1fr; }
+  .section.compact .info-list li:nth-last-child(2) { border-bottom: 1px solid var(--border); }
+  .section.compact .form-card { padding: 24px 20px; }
+}
 
 /* ---------- Image placeholders ---------- */
 /* Drop-in visual stand-ins for photos we don't have yet.
