@@ -74,6 +74,40 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
    phone and hours in the markup — this is what makes the company show up for
    local Greek searches, and it is separate from anything in the code.
 
+
+## Staging on GitHub Pages
+
+`.github/workflows/pages.yml` publishes every push to `master` to
+
+    https://panos-mantis.github.io/pplastic-clone/
+
+This is a **review copy, not the live site**. `pplastic.gr` is not our domain,
+so the staging copy must not compete with the real one in search results. The
+workflow therefore publishes with:
+
+- `robots.txt` replaced by `User-agent: * / Disallow: /`
+- `sitemap.xml` removed — every URL in it points at `pplastic.gr`
+- `tools/` and the `.md` files left out of the published output
+- `.nojekyll` added so Pages serves the files as-is
+
+The versions committed in the repo stay production-correct; only the published
+copy is altered. The `canonical` and `hreflang` tags still point at
+`pplastic.gr`, which is the correct signal for a staging duplicate.
+
+The workflow also re-runs both build scripts and fails if that produces a diff,
+so a hand-edit to `/el/` is caught rather than shipped.
+
+Greek pages are served from `/el/` as real files, so they work on a project
+sub-path without changes. GitHub Pages cannot serve a per-directory 404, so a
+bad URL under `/el/` gets the English `404.html`; the Greek one is only used
+once the site moves to a host that supports it.
+
+### Going live
+
+When the real domain is in play, drop the two staging overrides from the
+workflow (or deploy the repo as-is to the production host) so `robots.txt` and
+`sitemap.xml` ship in their committed form.
+
 ## Changing content later
 
 Edit the **English** page or the translation table, then regenerate:

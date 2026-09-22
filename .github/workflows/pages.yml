@@ -1,0 +1,75 @@
+# Deploys the site to GitHub Pages as a STAGING copy.
+#
+# pplastic.gr is not our domain, so the published copy must stay out of search
+# results: this workflow replaces robots.txt with a disallow-all version and
+# drops sitemap.xml before publishing. The versions committed in the repo are
+# the production ones and are left untouched.
+name: Deploy to GitHub Pages (staging)
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than cancelling it mid-publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # /el/ is generated. If someone hand-edited a Greek page, regenerating
+      # produces a diff and this fails instead of shipping the edit, which the
+      # next build would silently overwrite anyway.
+      - name: Verify generated files are current
+        run: |
+          node tools/build-el.mjs
+          node tools/build-sitemap.mjs
+          git diff --exit-code -- el sitemap.xml
+
+      - name: Assemble staging site
+        run: |
+          mkdir -p _site
+          rsync -a ./ _site/ \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '_site' \
+            --exclude 'tools' \
+            --exclude '.claude' \
+            --exclude '*.md'
+
+          # Pages would otherwise run the output through Jekyll.
+          touch _site/.nojekyll
+
+          # Staging must not be indexed: it duplicates a live site we do not own.
+          printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
+
+          # Every URL in it points at pplastic.gr, so it is wrong here.
+          rm -f _site/sitemap.xml
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
