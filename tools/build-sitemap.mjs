@@ -77,5 +77,5 @@ out.push("");
 out.push("</urlset>");
 out.push("");
 
-fs.writeFileSync(path.join(ROOT, "sitemap.xml"), out.join("\n"));
+fs.writeFileSync(path.join(ROOT, "_site", "sitemap.xml"), out.join("\n"));
 console.log("sitemap.xml: " + (pages.length * 2 + 1) + " URLs (" + pages.length + " pages x 2 languages + 1 PDF)");

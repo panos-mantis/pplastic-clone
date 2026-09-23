@@ -22,7 +22,10 @@ import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://pplastic.gr";
-const OUT_DIR = path.join(ROOT, "el");
+// Eleventy has already written the English pages here; /el/ is generated
+// alongside them, so the whole site ships from one directory.
+const BUILD = path.join(ROOT, "_site");
+const OUT_DIR = path.join(BUILD, "el");
 
 const I18N = require(path.join(ROOT, "js", "i18n-data.js"));
 const META = require(path.join(ROOT, "tools", "meta.el.json"));
@@ -252,7 +255,7 @@ fs.mkdirSync(OUT_DIR, { recursive: true });
 console.log("Building Greek pages into /el/  (" + PAGES.length + " pages)\n");
 
 for (const file of PAGES) {
-  const srcPath = path.join(ROOT, file);
+  const srcPath = path.join(BUILD, file);
   if (!fs.existsSync(srcPath)) { warn("missing source " + file); continue; }
   const source = fs.readFileSync(srcPath, "utf8");
   const meta = META[file];
