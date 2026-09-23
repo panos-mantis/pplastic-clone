@@ -128,9 +128,13 @@ function rewriteHead(html, file, meta) {
   html = setMeta(html, 'name="twitter:title"', meta.title);
   html = setMeta(html, 'name="twitter:description"', meta.description);
   html = setMeta(html, 'property="og:locale"', "el_GR");
-  if (meta.imageAlt) {
-    html = setMeta(html, 'property="og:image:alt"', meta.imageAlt);
-    html = setMeta(html, 'name="twitter:image:alt"', meta.imageAlt);
+
+  // The share card carries text, so Greek pages need the Greek rendering of it.
+  html = html.replace(/og-cover\.png/g, "og-cover-el.png");
+  const coverAlt = META._coverAlt || meta.imageAlt;
+  if (coverAlt) {
+    html = setMeta(html, 'property="og:image:alt"', coverAlt);
+    html = setMeta(html, 'name="twitter:image:alt"', coverAlt);
   }
   html = setMeta(html, 'property="og:url"', elUrl);
   html = html.replace(/(<link rel="canonical" href=")[^"]*(">)/, "$1" + elUrl + "$2");

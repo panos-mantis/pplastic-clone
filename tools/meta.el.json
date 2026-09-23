@@ -1,6 +1,8 @@
 {
   "_comment": "Greek <head> metadata per page. Body copy comes from js/i18n-data.js; only head strings live here. Edit freely and re-run `node tools/build-el.mjs`.",
 
+  "_coverAlt": "pplastic — Παπαδόπουλος Πλαστικά Προφίλ Α.Ε., διέλαση προφίλ PVC στην Αθήνα από το 1962",
+
   "_org": {
     "description": "Οικογενειακή βιομηχανία προφίλ PVC για ναυτιλιακές, τεχνικές και βιομηχανικές εφαρμογές, με έδρα την Αθήνα και εξειδίκευση στην παραγωγή προφίλ PVC από το 1962.",
     "addressLocality": "Αθήνα",

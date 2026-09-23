@@ -1107,3 +1107,71 @@ a:hover { color: var(--primary); }
   color: var(--accent-strong);
   background: var(--accent-soft);
 }
+
+/* ===========================================================
+   Sticky quick-contact bar (small screens only)
+   The nav "Contact us" pill scrolls away on long pages; on a
+   phone this keeps calling and enquiring one tap away. Hidden
+   on the contact page and on 404, where it would be noise.
+   =========================================================== */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip-path: inset(50%);
+  overflow: hidden; white-space: nowrap;
+}
+
+.mobile-bar { display: none; }
+
+@media (max-width: 720px) {
+  .mobile-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.4fr;
+    gap: 8px;
+    position: fixed;
+    z-index: 60;
+    left: 0; right: 0; bottom: 0;
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -6px 24px -12px rgba(8, 44, 57, 0.35);
+  }
+
+  .mobile-bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    /* Comfortably above the 44px minimum tap target. */
+    min-height: 48px;
+    padding: 6px 4px;
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: center;
+    text-decoration: none;
+    color: var(--primary);
+    background: var(--bg-alt);
+  }
+
+  .mobile-bar-item svg { width: 20px; height: 20px; }
+
+  .mobile-bar-item.is-primary {
+    color: #fff;
+    background: var(--accent-2);
+  }
+
+  .mobile-bar-item:active { transform: translateY(1px); }
+
+  /* So the bar never covers the last of the page or the footer. */
+  body { padding-bottom: 76px; }
+}
+
+@media (max-width: 720px) and (prefers-reduced-motion: no-preference) {
+  .mobile-bar { transition: transform 0.25s var(--ease); }
+  .mobile-bar[hidden] { transform: translateY(100%); }
+}

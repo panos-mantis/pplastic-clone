@@ -24,6 +24,11 @@
       "nav.catalogue": "Catalogue",
       "nav.contact": "Contact us",
 
+      "mobilebar.call": "Call",
+      "mobilebar.email": "Email",
+      "mobilebar.enquiry": "Send enquiry",
+      "mobilebar.label": "Quick contact",
+
       "bc.home": "Home",
       "bc.about": "About us",
       "bc.marine": "Marine",
@@ -300,6 +305,11 @@
       "nav.exhibitions": "Εκθέσεις",
       "nav.catalogue": "Κατάλογος",
       "nav.contact": "Επικοινωνία",
+
+      "mobilebar.call": "Κλήση",
+      "mobilebar.email": "Email",
+      "mobilebar.enquiry": "Αίτημα προσφοράς",
+      "mobilebar.label": "Γρήγορη επικοινωνία",
 
       "bc.home": "Αρχική",
       "bc.about": "Η Εταιρεία",

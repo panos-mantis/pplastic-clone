@@ -5,7 +5,9 @@
   "scripts": {
     "build": "eleventy && node tools/build-el.mjs && node tools/build-sitemap.mjs",
     "serve": "eleventy --serve",
-    "build:en": "eleventy"
+    "build:en": "eleventy",
+    "build:og": "node tools/build-og.mjs",
+    "build:fonts": "node tools/fetch-fonts.mjs"
   },
   "repository": {
     "type": "git",
@@ -16,7 +18,8 @@
   },
   "homepage": "https://github.com/panos-mantis/pplastic-clone#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.6"
+    "@11ty/eleventy": "^3.1.6",
+    "@resvg/resvg-js": "^2.6.2"
   },
   "private": true
 }

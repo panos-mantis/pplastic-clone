@@ -32,6 +32,11 @@ jobs:
           node-version: '24'
           cache: npm
 
+      # Exposes the published base URL, so the staging overrides below do not
+      # have to hardcode it.
+      - uses: actions/configure-pages@v5
+        id: pages
+
       - run: npm ci
 
       # Eleventy builds the English pages, build-el.mjs generates /el/ from that
@@ -50,6 +55,14 @@ jobs:
 
           # Every URL in it points at pplastic.gr, so it is wrong here.
           rm -f _site/sitemap.xml
+
+          # og:image is absolute and points at pplastic.gr, which is not ours,
+          # so the share card would fail to load when this URL is pasted
+          # anywhere. Point it at the copy we are actually serving. canonical
+          # and og:url are deliberately left alone: they should keep crediting
+          # the real site.
+          find _site -name '*.html' -print0 | xargs -0 sed -i \
+            "s#https://pplastic.gr/assets/images/og-cover#${{ steps.pages.outputs.base_url }}/assets/images/og-cover#g"
 
       - uses: actions/upload-pages-artifact@v3
         with:
