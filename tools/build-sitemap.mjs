@@ -32,6 +32,7 @@ const RANK = {
   "contact.html":     ["yearly",  "0.7"],
   "about.html":       ["yearly",  "0.6"],
   "exhibitions.html": ["monthly", "0.5"],
+  "privacy.html":     ["yearly",  "0.2"],
 };
 
 const urlFor = (file, lang) => {

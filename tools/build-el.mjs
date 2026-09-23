@@ -230,7 +230,8 @@ function rewriteJsonLd(html, file, meta, org) {
 
 /* map an English breadcrumb label to Greek via the bc.* keys */
 const CRUMB_KEYS = ["bc.home", "bc.about", "bc.marine", "bc.technical", "bc.exhibitions",
-  "bc.catalogue", "bc.contact", "bc.rubrails", "bc.inflatable", "bc.heavyduty", "bc.various"];
+  "bc.catalogue", "bc.contact", "bc.rubrails", "bc.inflatable", "bc.heavyduty", "bc.various",
+  "bc.privacy"];
 function greekCrumb(english) {
   for (const k of CRUMB_KEYS) if (I18N.en[k] === english) return I18N.el[k];
   return null;

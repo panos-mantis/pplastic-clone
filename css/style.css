@@ -1175,3 +1175,47 @@ a:hover { color: var(--primary); }
   .mobile-bar { transition: transform 0.25s var(--ease); }
   .mobile-bar[hidden] { transform: translateY(100%); }
 }
+
+/* ===========================================================
+   Legal pages — a single readable column of prose.
+   =========================================================== */
+.legal {
+  max-width: 68ch;
+}
+
+.legal h2 {
+  margin: 2.2rem 0 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.legal h2:first-child { margin-top: 0; }
+
+.legal p {
+  margin: 0 0 1rem;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+.legal-updated {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+
+/* The privacy link sits between the copyright and the strapline in the
+   footer's space-between row; keep it as quiet as its neighbours. */
+.footer-bottom a {
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.footer-bottom a:hover,
+.footer-bottom a:focus-visible {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.6);
+}
