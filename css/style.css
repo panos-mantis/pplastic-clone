@@ -1219,3 +1219,69 @@ a:hover { color: var(--primary); }
   color: #fff;
   border-bottom-color: rgba(255, 255, 255, 0.6);
 }
+
+/* ===========================================================
+   Spec tables — real product data, so they need to stay
+   readable on a phone. The wrapper scrolls horizontally
+   rather than letting the table squash its columns.
+   =========================================================== */
+.table-wrap {
+  margin-top: 28px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  box-shadow: var(--shadow-sm);
+  /* Keeps a keyboard-scrollable region focusable without a visible outline jump. */
+  scrollbar-width: thin;
+}
+
+.spec-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.spec-table th,
+.spec-table td {
+  padding: 13px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.spec-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--bg-alt);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-transform: uppercase;
+  vertical-align: bottom;
+}
+
+.spec-table tbody th {
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.spec-table tbody td {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.spec-table tbody tr:last-child th,
+.spec-table tbody tr:last-child td { border-bottom: 0; }
+
+.spec-table tbody tr:hover { background: var(--accent-soft); }
+
+.spec-note {
+  margin: 14px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
