@@ -46,7 +46,18 @@ jobs:
       - run: npm run build
 
       - name: Apply staging overrides
+        env:
+          BASE_URL: ${{ steps.pages.outputs.base_url }}
         run: |
+          set -euo pipefail
+
+          # An empty base_url would rewrite og:image to a broken relative URL
+          # and still deploy, so fail here instead of shipping a dead card.
+          if [ -z "$BASE_URL" ]; then
+            echo "configure-pages did not report a base_url" >&2
+            exit 1
+          fi
+
           # Pages would otherwise run the output through Jekyll.
           touch _site/.nojekyll
 
@@ -62,7 +73,11 @@ jobs:
           # and og:url are deliberately left alone: they should keep crediting
           # the real site.
           find _site -name '*.html' -print0 | xargs -0 sed -i \
-            "s#https://pplastic.gr/assets/images/og-cover#${{ steps.pages.outputs.base_url }}/assets/images/og-cover#g"
+            "s#https://pplastic.gr/assets/images/og-cover#${BASE_URL}/assets/images/og-cover#g"
+
+          # Prove it actually happened, rather than trusting the sed.
+          grep -q "${BASE_URL}/assets/images/og-cover.png" _site/index.html
+          grep -q "${BASE_URL}/assets/images/og-cover-el.png" _site/el/index.html
 
       - uses: actions/upload-pages-artifact@v3
         with:
