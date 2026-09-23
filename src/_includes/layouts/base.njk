@@ -1,0 +1,167 @@
+{%- set canonical = site.url + permalink -%}
+{%- set navMap = {
+  "index": "home", "about": "about",
+  "marine": "marine", "rub-rails": "marine", "inflatable": "marine",
+  "heavy-duty": "marine", "various": "marine",
+  "technical": "technical", "exhibitions": "exhibitions",
+  "catalogue": "catalogue", "contact": "contact"
+} -%}
+{%- set here = navMap[page_id] -%}
+{%- macro navlink(id, href, key, label) -%}
+{% if here == id %}<a href="{{ href }}" class="active" aria-current="page" data-i18n="{{ key }}">{{ label }}</a>{% else %}<a href="{{ href }}" data-i18n="{{ key }}">{{ label }}</a>{% endif %}
+{%- endmacro -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title | safe }}</title>
+  <meta name="description" content="{{ description | safe }}">
+{%- if indexable != false %}
+  <link rel="canonical" href="{{ canonical }}">
+  <link rel="alternate" hreflang="en" href="{{ canonical }}">
+  <link rel="alternate" hreflang="el" href="{{ site.url }}/el{{ permalink }}">
+  <link rel="alternate" hreflang="x-default" href="{{ canonical }}">
+{%- endif %}
+  <meta name="theme-color" content="#0b3d4f">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+{%- if indexable != false %}
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ title | safe }}">
+  <meta property="og:description" content="{{ description | safe }}">
+  <meta property="og:image" content="{{ site.url }}/{{ ogImage }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title | safe }}">
+  <meta name="twitter:description" content="{{ description | safe }}">
+  <meta name="twitter:image" content="{{ site.url }}/{{ ogImage }}">
+{%- endif %}
+  <meta name="robots" content="{{ robots or defaultRobots }}">
+{%- if indexable != false %}
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image:alt" content="{{ ogImageAlt | safe }}">
+  <meta property="og:image:width" content="{{ ogImageWidth }}">
+  <meta property="og:image:height" content="{{ ogImageHeight }}">
+  <meta name="twitter:image:alt" content="{{ ogImageAlt | safe }}">
+{%- endif %}
+{%- if jsonld %}
+  <script type="application/ld+json">
+  {{ jsonld | safe }}
+  </script>
+{%- endif %}
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="pplastic — Papadopoulos Plastic Profiles S.A.">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="currentColor"/><path d="M17 15h-4v17h4M23 8h4v17h-4" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="brand-text"><span class="brand-name">pplastic</span><span class="brand-sub">Plastic Profiles S.A.</span></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+
+      <nav aria-label="Main">
+        <ul class="nav-links" id="navLinks">
+          <li>{{ navlink("home", "index.html", "nav.home", "Home") }}</li>
+          <li>{{ navlink("about", "about.html", "nav.about", "About us") }}</li>
+          <li class="dropdown">
+            {{ navlink("marine", "marine.html", "nav.marine", "Marine") }}
+            <ul class="dropdown-menu">
+              <li><a href="rub-rails.html" data-i18n="bc.rubrails">Rub rails</a></li>
+              <li><a href="inflatable.html" data-i18n="bc.inflatable">Inflatable</a></li>
+              <li><a href="heavy-duty.html" data-i18n="bc.heavyduty">Heavy duty</a></li>
+              <li><a href="various.html" data-i18n="bc.various">Various</a></li>
+            </ul>
+          </li>
+          <li>{{ navlink("technical", "technical.html", "nav.technical", "Technical") }}</li>
+          <li>{{ navlink("exhibitions", "exhibitions.html", "nav.exhibitions", "Exhibitions") }}</li>
+          <li>{{ navlink("catalogue", "catalogue.html", "nav.catalogue", "Catalogue") }}</li>
+          <li class="nav-cta">{{ navlink("contact", "contact.html", "nav.contact", "Contact us") }}</li>
+          <li class="lang-switch" role="group" aria-label="Language">
+            <a class="lang-btn active" href="{{ page_id }}.html" hreflang="en" lang="en" aria-current="true">EN</a>
+            <a class="lang-btn" href="el/{{ page_id }}.html" hreflang="el" lang="el">ΕΛ</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+{{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="currentColor"/><path d="M17 15h-4v17h4M23 8h4v17h-4" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">pplastic</span></div>
+          <p data-i18n="footer.tagline">Papadopoulos Plastic Profiles S.A. — specialized in PVC extrusion since 1962. A reliable and flexible partner for plastic profiles worldwide.</p>
+          <span class="footer-since" data-i18n="footer.since">Extruding since 1962</span>
+        </div>
+        <div>
+          <h4 data-i18n="footer.company">Company</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About us</a></li>
+            <li><a href="exhibitions.html" data-i18n="nav.exhibitions">Exhibitions</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.products">Products</h4>
+          <ul>
+            <li><a href="marine.html" data-i18n="nav.marine">Marine</a></li>
+            <li><a href="technical.html" data-i18n="nav.technical">Technical</a></li>
+            <li><a href="catalogue.html" data-i18n="nav.catalogue">Catalogue</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.getintouch">Get in touch</h4>
+          <ul>
+            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+            <li><a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a></li>
+            <li data-i18n="footer.address">{{ site.address }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 1962–2026 Papadopoulos Plastic Profiles S.A. — pplastic.gr</span>
+        <a href="privacy.html" data-i18n="footer.privacy">Privacy notice</a>
+        <span data-i18n="footer.made">PVC extrusion · Athens, Greece</span>
+      </div>
+    </div>
+  </footer>
+
+{%- if page_id != "contact" and page_id != "404" %}
+  <nav class="mobile-bar" aria-labelledby="mobileBarLabel">
+    <span id="mobileBarLabel" class="visually-hidden" data-i18n="mobilebar.label">Quick contact</span>
+    <a class="mobile-bar-item" href="tel:{{ site.phoneHref }}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      <span data-i18n="mobilebar.call">Call</span>
+    </a>
+    <a class="mobile-bar-item" href="mailto:{{ site.email }}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m3.5 7 8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-i18n="mobilebar.email">Email</span>
+    </a>
+    <a class="mobile-bar-item is-primary" href="contact.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-5.5-5.5L19.5 12l-6 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-i18n="mobilebar.enquiry">Send enquiry</span>
+    </a>
+  </nav>
+{%- endif %}
+
+  <script src="js/i18n-data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+{%- if extraScripts %}
+{{ extraScripts | safe }}
+{%- endif %}
+</body>
+</html>

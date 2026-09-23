@@ -1,0 +1,161 @@
+---
+title: |-
+  Contact us | pplastic — Papadopoulos Plastic Profiles S.A.
+description: |-
+  Contact Papadopoulos Plastic Profiles S.A., 2 Salaminias Str., 11855 Athens. Tel +30 210 3460579, pplastic@otenet.gr.
+permalink: "/contact.html"
+page_id: "contact"
+robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+jsonld: |-
+  {
+      "@context": "https://schema.org",
+      "@graph": [
+      {
+        "@type": ["Organization", "LocalBusiness"],
+        "@id": "https://pplastic.gr/#organization",
+        "name": "Papadopoulos Plastic Profiles S.A.",
+        "alternateName": "pplastic",
+        "legalName": "Papadopoulos Plastic Profiles S.A.",
+        "description": "Family-run manufacturer of extruded PVC profiles for marine, technical and industrial applications, based in Athens, Greece and specialized in PVC extrusion since 1962.",
+        "url": "https://pplastic.gr/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://pplastic.gr/#logo",
+          "url": "https://pplastic.gr/assets/images/pplastic-white.png",
+          "width": 343,
+          "height": 132,
+          "caption": "pplastic — Papadopoulos Plastic Profiles S.A."
+        },
+        "image": { "@id": "https://pplastic.gr/#logo" },
+        "foundingDate": "1962",
+        "email": "pplastic@otenet.gr",
+        "telephone": "+30-210-3460579",
+        "faxNumber": "+30-210-3458526",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2 Salaminias Str.",
+          "postalCode": "11855",
+          "addressLocality": "Athens",
+          "addressCountry": "GR"
+        },
+        "areaServed": "Worldwide",
+        "knowsLanguage": ["en", "el"],
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=2+Salaminias+Str,+11855+Athens,+Greece",
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "16:00"
+        }],
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "name": "Sales and Customer Service",
+          "telephone": "+30-210-3460579",
+          "email": "pplastic@otenet.gr",
+          "areaServed": "Worldwide",
+          "availableLanguage": ["en", "el"]
+        }, {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "name": "Technical Dept.",
+          "telephone": "+30-210-3460579",
+          "email": "pplastic@otenet.gr",
+          "areaServed": "Worldwide",
+          "availableLanguage": ["en", "el"]
+        }]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://pplastic.gr/#website",
+        "url": "https://pplastic.gr/",
+        "name": "pplastic",
+        "description": "Papadopoulos Plastic Profiles S.A. — PVC extrusion since 1962.",
+        "publisher": { "@id": "https://pplastic.gr/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "ContactPage",
+        "@id": "https://pplastic.gr/contact.html#webpage",
+        "url": "https://pplastic.gr/contact.html",
+        "name": "Contact us | pplastic — Papadopoulos Plastic Profiles S.A.",
+        "description": "Contact Papadopoulos Plastic Profiles S.A., 2 Salaminias Str., 11855 Athens. Tel +30 210 3460579, pplastic@otenet.gr.",
+        "isPartOf": { "@id": "https://pplastic.gr/#website" },
+        "about": { "@id": "https://pplastic.gr/#organization" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://pplastic.gr/assets/images/plastic-profiles_1.jpg",
+          "width": 240,
+          "height": 180,
+          "caption": "Assorted extruded PVC profiles made by pplastic"
+        },
+        "breadcrumb": { "@id": "https://pplastic.gr/contact.html#breadcrumb" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://pplastic.gr/contact.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pplastic.gr/" },
+          { "@type": "ListItem", "position": 2, "name": "Contact us", "item": "https://pplastic.gr/contact.html" }
+        ]
+      }
+      ]
+    }
+extraScripts: "  <!-- EmailJS SDK and form handling (version pinned so a CDN update can't break the form) -->\r\n  <script src=\"https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js\" defer></script>\r\n  <script>\r\n    document.addEventListener('DOMContentLoaded', function () {\r\n      const form = document.getElementById('contactForm');\r\n      const statusDiv = document.getElementById('formStatus');\r\n      const btn = form.querySelector('button[type=\"submit\"]');\r\n      const t = (key) => window.pplasticT ? window.pplasticT(key) : key;\r\n\r\n      const setStatus = (state, key) => {\r\n        statusDiv.className = 'form-status is-' + state;\r\n        statusDiv.textContent = t(key);\r\n      };\r\n\r\n      if (window.emailjs) emailjs.init('fOZRzhzaNJFyqAFZQ');\r\n\r\n      form.addEventListener('submit', function (e) {\r\n        e.preventDefault();\r\n        const f = form.elements;\r\n\r\n        // Honeypot: bots fill the hidden field — pretend success, send nothing\r\n        if (f.website.value) { setStatus('ok', 'contact.form.ok'); form.reset(); return; }\r\n\r\n        if (!window.emailjs) { setStatus('err', 'contact.form.err'); return; }\r\n\r\n        setStatus('pending', 'contact.form.sending');\r\n        btn.disabled = true;\r\n\r\n        const templateParams = {\r\n          name: f.name.value.trim(),\r\n          email: f.email.value.trim(),\r\n          phone: f.phone.value.trim(),\r\n          message: f.message.value.trim()\r\n        };\r\n\r\n        // EmailJS service and template configuration\r\n        emailjs.send('service_6kxvwi3', 'template_wna4bew', templateParams)\r\n          .then(() => {\r\n            setStatus('ok', 'contact.form.ok');\r\n            form.reset();\r\n          })\r\n          .catch((error) => {\r\n            console.error('EmailJS error:', error);\r\n            setStatus('err', 'contact.form.err');\r\n          })\r\n          .finally(() => { btn.disabled = false; });\r\n      });\r\n    });\r\n  </script>"
+layout: layouts/base.njk
+---
+
+
+  <section class="page-hero compact">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html" data-i18n="bc.home">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page" data-i18n="bc.contact">Contact us</span></nav>
+      <h1 data-i18n="contact.hero.title">Let's talk profiles</h1>
+      <p data-i18n="contact.hero.sub">For any further information you may require, please don't hesitate to contact us.</p>
+    </div>
+  </section>
+
+  <section class="section compact">
+    <div class="container contact-grid">
+      <div class="reveal">
+        <ul class="info-list">
+          <li><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16M16 9h2a2 2 0 0 1 2 2v10M2 21h20M8 7h4M8 11h4M8 15h4"/></svg></span><div><span class="k" data-i18n="contact.k.office">Office &amp; Factory</span><span class="v" data-i18n="contact.office.val">Papadopoulos Plastic Profiles S.A.<br>2 Salaminias Str.<br>11855 Athens, Greece</span></div></li>
+          <li><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><span class="k" data-i18n="contact.k.hours">Working Hours</span><span class="v hours"><span data-i18n="contact.hours.days">Mon – Fri</span><span data-i18n="contact.hours.time">8:00 – 16:00 EET</span></span></div></li>
+          <li><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span><div><span class="k" data-i18n="contact.k.tel">Tel.</span><span class="v"><a href="tel:+302103460579">+30 210 3460579</a></span></div></li>
+          <li><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg></span><div><span class="k" data-i18n="contact.k.fax">Fax</span><span class="v">+30 210 3458526</span></div></li>
+          <li><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><span class="k" data-i18n="contact.k.email">Email</span><span class="v"><a href="mailto:pplastic@otenet.gr">pplastic@otenet.gr</a></span></div></li>
+        </ul>
+
+        <a class="map-card" href="https://www.google.com/maps/search/?api=1&amp;query=2+Salaminias+Str,+11855+Athens,+Greece" target="_blank" rel="noopener">
+          <span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <span><strong data-i18n="contact.map.title">Open in Google Maps</strong><span data-i18n="footer.address">2 Salaminias Str., 11855 Athens</span></span>
+        </a>
+
+        <div class="persons">
+          <h3 data-i18n="contact.persons">Contact persons</h3>
+          <div class="person">
+            <div class="avatar" aria-hidden="true">PP</div>
+            <div><div class="role" data-i18n="contact.person1.role">Sales and Customer Service</div><div class="name" data-i18n="contact.person1.name">Pavlos Papadopoulos</div></div>
+          </div>
+          <div class="person">
+            <div class="avatar" aria-hidden="true">ΠΠ</div>
+            <div><div class="role" data-i18n="contact.person2.role">Technical Dept.</div><div class="name" data-i18n="contact.person2.name">Panagiotis Papadopoulos</div></div>
+          </div>
+        </div>
+      </div>
+
+      <form class="form-card reveal" id="contactForm">
+        <h3 data-i18n="contact.form.title">Send us a message</h3>
+        <p data-i18n="contact.form.sub">Tell us about your application and we'll get back to you.</p>
+        <div class="field-row">
+          <div class="field"><label for="n" data-i18n="contact.form.name">Name</label><input id="n" name="name" type="text" autocomplete="name" data-i18n="contact.form.ph.name" placeholder="Your name" required></div>
+          <div class="field"><label for="e" data-i18n="contact.form.email">Email</label><input id="e" name="email" type="email" autocomplete="email" data-i18n="contact.form.ph.email" placeholder="you@company.com" required></div>
+        </div>
+        <div class="field"><label for="p"><span data-i18n="contact.form.phone">Phone</span> <span class="opt" data-i18n="contact.form.optional">(optional)</span></label><input id="p" name="phone" type="tel" autocomplete="tel" data-i18n="contact.form.ph.phone" placeholder="+30 123 456 7890"></div>
+        <div class="field"><label for="m" data-i18n="contact.form.message">Message</label><textarea id="m" name="message" rows="4" data-i18n="contact.form.ph.message" placeholder="Tell us about your profile needs…" required></textarea></div>
+        <div class="hp-field" aria-hidden="true"><label for="w">Website</label><input id="w" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <button class="btn btn-primary" type="submit" style="width:100%;" data-i18n="contact.form.btn">Send message</button>
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>

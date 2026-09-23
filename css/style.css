@@ -1107,3 +1107,181 @@ a:hover { color: var(--primary); }
   color: var(--accent-strong);
   background: var(--accent-soft);
 }
+
+/* ===========================================================
+   Sticky quick-contact bar (small screens only)
+   The nav "Contact us" pill scrolls away on long pages; on a
+   phone this keeps calling and enquiring one tap away. Hidden
+   on the contact page and on 404, where it would be noise.
+   =========================================================== */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip-path: inset(50%);
+  overflow: hidden; white-space: nowrap;
+}
+
+.mobile-bar { display: none; }
+
+@media (max-width: 720px) {
+  .mobile-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.4fr;
+    gap: 8px;
+    position: fixed;
+    z-index: 60;
+    left: 0; right: 0; bottom: 0;
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -6px 24px -12px rgba(8, 44, 57, 0.35);
+  }
+
+  .mobile-bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    /* Comfortably above the 44px minimum tap target. */
+    min-height: 48px;
+    padding: 6px 4px;
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: center;
+    text-decoration: none;
+    color: var(--primary);
+    background: var(--bg-alt);
+  }
+
+  .mobile-bar-item svg { width: 20px; height: 20px; }
+
+  .mobile-bar-item.is-primary {
+    color: #fff;
+    background: var(--accent-2);
+  }
+
+  .mobile-bar-item:active { transform: translateY(1px); }
+
+  /* So the bar never covers the last of the page or the footer. */
+  body { padding-bottom: 76px; }
+}
+
+@media (max-width: 720px) and (prefers-reduced-motion: no-preference) {
+  .mobile-bar { transition: transform 0.25s var(--ease); }
+  .mobile-bar[hidden] { transform: translateY(100%); }
+}
+
+/* ===========================================================
+   Legal pages — a single readable column of prose.
+   =========================================================== */
+.legal {
+  max-width: 68ch;
+}
+
+.legal h2 {
+  margin: 2.2rem 0 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.legal h2:first-child { margin-top: 0; }
+
+.legal p {
+  margin: 0 0 1rem;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+.legal-updated {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+
+/* The privacy link sits between the copyright and the strapline in the
+   footer's space-between row; keep it as quiet as its neighbours. */
+.footer-bottom a {
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.footer-bottom a:hover,
+.footer-bottom a:focus-visible {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===========================================================
+   Spec tables — real product data, so they need to stay
+   readable on a phone. The wrapper scrolls horizontally
+   rather than letting the table squash its columns.
+   =========================================================== */
+.table-wrap {
+  margin-top: 28px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  box-shadow: var(--shadow-sm);
+  /* Keeps a keyboard-scrollable region focusable without a visible outline jump. */
+  scrollbar-width: thin;
+}
+
+.spec-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.spec-table th,
+.spec-table td {
+  padding: 13px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.spec-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--bg-alt);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-transform: uppercase;
+  vertical-align: bottom;
+}
+
+.spec-table tbody th {
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.spec-table tbody td {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.spec-table tbody tr:last-child th,
+.spec-table tbody tr:last-child td { border-bottom: 0; }
+
+.spec-table tbody tr:hover { background: var(--accent-soft); }
+
+.spec-note {
+  margin: 14px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}

@@ -1,0 +1,158 @@
+---
+title: |-
+  About us | pplastic — Papadopoulos Plastic Profiles S.A.
+description: |-
+  A family business in PVC extrusion since 1962. Learn about Papadopoulos Plastic Profiles S.A., a reliable and flexible partner for plastic profiles.
+permalink: "/about.html"
+page_id: "about"
+robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+jsonld: |-
+  {
+      "@context": "https://schema.org",
+      "@graph": [
+      {
+        "@type": ["Organization", "LocalBusiness"],
+        "@id": "https://pplastic.gr/#organization",
+        "name": "Papadopoulos Plastic Profiles S.A.",
+        "alternateName": "pplastic",
+        "legalName": "Papadopoulos Plastic Profiles S.A.",
+        "description": "Family-run manufacturer of extruded PVC profiles for marine, technical and industrial applications, based in Athens, Greece and specialized in PVC extrusion since 1962.",
+        "url": "https://pplastic.gr/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://pplastic.gr/#logo",
+          "url": "https://pplastic.gr/assets/images/pplastic-white.png",
+          "width": 343,
+          "height": 132,
+          "caption": "pplastic — Papadopoulos Plastic Profiles S.A."
+        },
+        "image": { "@id": "https://pplastic.gr/#logo" },
+        "foundingDate": "1962",
+        "email": "pplastic@otenet.gr",
+        "telephone": "+30-210-3460579",
+        "faxNumber": "+30-210-3458526",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2 Salaminias Str.",
+          "postalCode": "11855",
+          "addressLocality": "Athens",
+          "addressCountry": "GR"
+        },
+        "areaServed": "Worldwide",
+        "knowsLanguage": ["en", "el"],
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=2+Salaminias+Str,+11855+Athens,+Greece",
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "16:00"
+        }],
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "name": "Sales and Customer Service",
+          "telephone": "+30-210-3460579",
+          "email": "pplastic@otenet.gr",
+          "areaServed": "Worldwide",
+          "availableLanguage": ["en", "el"]
+        }, {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "name": "Technical Dept.",
+          "telephone": "+30-210-3460579",
+          "email": "pplastic@otenet.gr",
+          "areaServed": "Worldwide",
+          "availableLanguage": ["en", "el"]
+        }]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://pplastic.gr/#website",
+        "url": "https://pplastic.gr/",
+        "name": "pplastic",
+        "description": "Papadopoulos Plastic Profiles S.A. — PVC extrusion since 1962.",
+        "publisher": { "@id": "https://pplastic.gr/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "AboutPage",
+        "@id": "https://pplastic.gr/about.html#webpage",
+        "url": "https://pplastic.gr/about.html",
+        "name": "About us | pplastic — Papadopoulos Plastic Profiles S.A.",
+        "description": "A family business in PVC extrusion since 1962. Learn about Papadopoulos Plastic Profiles S.A., a reliable and flexible partner for plastic profiles.",
+        "isPartOf": { "@id": "https://pplastic.gr/#website" },
+        "about": { "@id": "https://pplastic.gr/#organization" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://pplastic.gr/assets/images/extruder-die.jpg",
+          "width": 240,
+          "height": 180,
+          "caption": "Extrusion die on the pplastic production line"
+        },
+        "breadcrumb": { "@id": "https://pplastic.gr/about.html#breadcrumb" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://pplastic.gr/about.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pplastic.gr/" },
+          { "@type": "ListItem", "position": 2, "name": "About us", "item": "https://pplastic.gr/about.html" }
+        ]
+      }
+      ]
+    }
+layout: layouts/base.njk
+---
+
+
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html" data-i18n="bc.home">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page" data-i18n="bc.about">About us</span></nav>
+      <h1 data-i18n="about.hero.title">A family of extrusion, since 1962</h1>
+      <p data-i18n="about.hero.sub">Papadopoulos Plastic Profiles S.A. — a reliable and flexible partner in PVC extrusion for over half a century.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="reveal">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="about.story.eyebrow">Our story</span>
+          <h2 data-i18n="about.story.title">Six decades of PVC extrusion</h2>
+        </div>
+        <div class="lead">
+          <p data-i18n="lead1">Our company is specialized in PVC extrusion for over half a century.</p>
+          <p data-i18n="lead2">We manufacture plastic profiles for a wide range of applications, using the highest quality of raw material and the best standards in our production procedure.</p>
+          <p data-i18n="lead3">For comprehensive information about our products, please browse our web site.</p>
+          <p class="muted" data-i18n="lead4">Welcome to Papadopoulos Plastic Profiles S.A. — a reliable and flexible partner.</p>
+        </div>
+      </div>
+      <figure class="photo reveal">
+        <img src="assets/images/extruder-die.jpg" alt="Extrusion die on the production line" width="240" height="180" loading="lazy">
+        <figcaption data-i18n="about.photo.cap">Every profile starts with a precision extrusion die.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="index.cap.eyebrow">Why pplastic</span>
+        <h2 data-i18n="index.cap.title">Built on decades of extrusion expertise</h2>
+      </div>
+      <div class="features">
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3 data-i18n="index.feat1.title">60+ years of know-how</h3><p data-i18n="index.feat1.sub">Continuous extrusion experience since 1962, refined across generations.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="m2 13 10 5 10-5"/></svg></div><h3 data-i18n="index.feat2.title">Premium raw material</h3><p data-i18n="index.feat2.sub">Only the highest quality compounds enter our production lines.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="8" r="3.5"/><path d="M21 20v-1a4 4 0 0 0-3-3.87M16 4.13a4 4 0 0 1 0 7.75"/></svg></div><h3 data-i18n="index.feat3.title">Flexible partnership</h3><p data-i18n="index.feat3.sub">Custom profiles and volumes tailored to each client's needs.</p></div>
+      </div>
+
+      <div class="cta-band reveal">
+        <div>
+          <h2 data-i18n="index.cta.title">Let's build your next profile together</h2>
+          <p data-i18n="index.cta.sub">Tell us about your application — we'll help you find or develop the right extruded solution.</p>
+        </div>
+        <a href="contact.html" class="btn btn-primary" data-i18n="index.cta.btn">Contact us →</a>
+      </div>
+    </div>
+  </section>

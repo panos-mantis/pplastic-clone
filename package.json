@@ -1,0 +1,25 @@
+{
+  "name": "pplastic",
+  "version": "1.0.0",
+  "description": "Website for Papadopoulos Plastic Profiles S.A. (pplastic)",
+  "scripts": {
+    "build": "eleventy && node tools/build-el.mjs && node tools/build-sitemap.mjs",
+    "serve": "eleventy --serve",
+    "build:en": "eleventy",
+    "build:og": "node tools/build-og.mjs",
+    "build:fonts": "node tools/fetch-fonts.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panos-mantis/pplastic-clone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/panos-mantis/pplastic-clone/issues"
+  },
+  "homepage": "https://github.com/panos-mantis/pplastic-clone#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@resvg/resvg-js": "^2.6.2"
+  },
+  "private": true
+}

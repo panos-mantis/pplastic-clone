@@ -30,27 +30,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+          cache: npm
 
-      # /el/ is generated. If someone hand-edited a Greek page, regenerating
-      # produces a diff and this fails instead of shipping the edit, which the
-      # next build would silently overwrite anyway.
-      - name: Verify generated files are current
+      # Exposes the published base URL, so the staging overrides below do not
+      # have to hardcode it.
+      - uses: actions/configure-pages@v5
+        id: pages
+
+      - run: npm ci
+
+      # Eleventy builds the English pages, build-el.mjs generates /el/ from that
+      # output, build-sitemap.mjs writes the sitemap. build-el.mjs exits non-zero
+      # on any string it cannot translate, so a missed translation fails here
+      # rather than shipping English text onto a Greek page.
+      - run: npm run build
+
+      - name: Apply staging overrides
         run: |
-          node tools/build-el.mjs
-          node tools/build-sitemap.mjs
-          git diff --exit-code -- el sitemap.xml
-
-      - name: Assemble staging site
-        run: |
-          mkdir -p _site
-          rsync -a ./ _site/ \
-            --exclude '.git' \
-            --exclude '.github' \
-            --exclude '_site' \
-            --exclude 'tools' \
-            --exclude '.claude' \
-            --exclude '*.md'
-
           # Pages would otherwise run the output through Jekyll.
           touch _site/.nojekyll
 
@@ -59,6 +55,14 @@ jobs:
 
           # Every URL in it points at pplastic.gr, so it is wrong here.
           rm -f _site/sitemap.xml
+
+          # og:image is absolute and points at pplastic.gr, which is not ours,
+          # so the share card would fail to load when this URL is pasted
+          # anywhere. Point it at the copy we are actually serving. canonical
+          # and og:url are deliberately left alone: they should keep crediting
+          # the real site.
+          find _site -name '*.html' -print0 | xargs -0 sed -i \
+            "s#https://pplastic.gr/assets/images/og-cover#${{ steps.pages.outputs.base_url }}/assets/images/og-cover#g"
 
       - uses: actions/upload-pages-artifact@v3
         with:

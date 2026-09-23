@@ -14,7 +14,8 @@ import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const SITE = "https://pplastic.gr";
+// Single source of truth, shared with the Eleventy build.
+const SITE = (await import("../src/_data/site.mjs")).default.url;
 const META = require(path.join(ROOT, "tools", "meta.el.json"));
 
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -32,6 +33,7 @@ const RANK = {
   "contact.html":     ["yearly",  "0.7"],
   "about.html":       ["yearly",  "0.6"],
   "exhibitions.html": ["monthly", "0.5"],
+  "privacy.html":     ["yearly",  "0.2"],
 };
 
 const urlFor = (file, lang) => {
@@ -77,5 +79,5 @@ out.push("");
 out.push("</urlset>");
 out.push("");
 
-fs.writeFileSync(path.join(ROOT, "sitemap.xml"), out.join("\n"));
+fs.writeFileSync(path.join(ROOT, "_site", "sitemap.xml"), out.join("\n"));
 console.log("sitemap.xml: " + (pages.length * 2 + 1) + " URLs (" + pages.length + " pages x 2 languages + 1 PDF)");

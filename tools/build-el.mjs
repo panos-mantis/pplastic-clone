@@ -1,17 +1,19 @@
 /* ===========================================================
    pplastic — Greek page generator
-   Reads the English pages at the repo root and writes fully
-   pre-rendered Greek copies into /el/, so Greek content has its
-   own crawlable URLs. Also stamps reciprocal hreflang tags and a
-   real <a> language switcher onto BOTH languages.
+   Reads the English pages Eleventy has just written into _site/
+   and writes fully pre-rendered Greek copies into _site/el/, so
+   Greek content has its own crawlable URLs. Also stamps reciprocal
+   hreflang tags and a real <a> language switcher onto BOTH languages.
 
    Source of truth:
      - body copy .......... js/i18n-data.js  (el table)
      - <head> metadata .... tools/meta.el.json
-     - page structure ..... the English .html files
+     - page structure ..... Eleventy's English output in _site/
 
-   Run:  node tools/build-el.mjs
-   Safe to re-run; it is idempotent.
+   Run:  npm run build   (eleventy first, then this)
+   Safe to re-run; it is idempotent. Exits non-zero on any string
+   it cannot translate, so a missed translation fails the build
+   rather than shipping English text onto a Greek page.
    =========================================================== */
 
 import fs from "node:fs";
@@ -21,8 +23,12 @@ import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const SITE = "https://pplastic.gr";
-const OUT_DIR = path.join(ROOT, "el");
+// Single source of truth, shared with the Eleventy build.
+const SITE = (await import("../src/_data/site.mjs")).default.url;
+// Eleventy has already written the English pages here; /el/ is generated
+// alongside them, so the whole site ships from one directory.
+const BUILD = path.join(ROOT, "_site");
+const OUT_DIR = path.join(BUILD, "el");
 
 const I18N = require(path.join(ROOT, "js", "i18n-data.js"));
 const META = require(path.join(ROOT, "tools", "meta.el.json"));
@@ -125,9 +131,13 @@ function rewriteHead(html, file, meta) {
   html = setMeta(html, 'name="twitter:title"', meta.title);
   html = setMeta(html, 'name="twitter:description"', meta.description);
   html = setMeta(html, 'property="og:locale"', "el_GR");
-  if (meta.imageAlt) {
-    html = setMeta(html, 'property="og:image:alt"', meta.imageAlt);
-    html = setMeta(html, 'name="twitter:image:alt"', meta.imageAlt);
+
+  // The share card carries text, so Greek pages need the Greek rendering of it.
+  html = html.replace(/og-cover\.png/g, "og-cover-el.png");
+  const coverAlt = META._coverAlt || meta.imageAlt;
+  if (coverAlt) {
+    html = setMeta(html, 'property="og:image:alt"', coverAlt);
+    html = setMeta(html, 'name="twitter:image:alt"', coverAlt);
   }
   html = setMeta(html, 'property="og:url"', elUrl);
   html = html.replace(/(<link rel="canonical" href=")[^"]*(">)/, "$1" + elUrl + "$2");
@@ -223,7 +233,8 @@ function rewriteJsonLd(html, file, meta, org) {
 
 /* map an English breadcrumb label to Greek via the bc.* keys */
 const CRUMB_KEYS = ["bc.home", "bc.about", "bc.marine", "bc.technical", "bc.exhibitions",
-  "bc.catalogue", "bc.contact", "bc.rubrails", "bc.inflatable", "bc.heavyduty", "bc.various"];
+  "bc.catalogue", "bc.contact", "bc.rubrails", "bc.inflatable", "bc.heavyduty", "bc.various",
+  "bc.privacy"];
 function greekCrumb(english) {
   for (const k of CRUMB_KEYS) if (I18N.en[k] === english) return I18N.el[k];
   return null;
@@ -252,7 +263,7 @@ fs.mkdirSync(OUT_DIR, { recursive: true });
 console.log("Building Greek pages into /el/  (" + PAGES.length + " pages)\n");
 
 for (const file of PAGES) {
-  const srcPath = path.join(ROOT, file);
+  const srcPath = path.join(BUILD, file);
   if (!fs.existsSync(srcPath)) { warn("missing source " + file); continue; }
   const source = fs.readFileSync(srcPath, "utf8");
   const meta = META[file];
