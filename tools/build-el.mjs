@@ -1,17 +1,19 @@
 /* ===========================================================
    pplastic — Greek page generator
-   Reads the English pages at the repo root and writes fully
-   pre-rendered Greek copies into /el/, so Greek content has its
-   own crawlable URLs. Also stamps reciprocal hreflang tags and a
-   real <a> language switcher onto BOTH languages.
+   Reads the English pages Eleventy has just written into _site/
+   and writes fully pre-rendered Greek copies into _site/el/, so
+   Greek content has its own crawlable URLs. Also stamps reciprocal
+   hreflang tags and a real <a> language switcher onto BOTH languages.
 
    Source of truth:
      - body copy .......... js/i18n-data.js  (el table)
      - <head> metadata .... tools/meta.el.json
-     - page structure ..... the English .html files
+     - page structure ..... Eleventy's English output in _site/
 
-   Run:  node tools/build-el.mjs
-   Safe to re-run; it is idempotent.
+   Run:  npm run build   (eleventy first, then this)
+   Safe to re-run; it is idempotent. Exits non-zero on any string
+   it cannot translate, so a missed translation fails the build
+   rather than shipping English text onto a Greek page.
    =========================================================== */
 
 import fs from "node:fs";
@@ -21,7 +23,8 @@ import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const SITE = "https://pplastic.gr";
+// Single source of truth, shared with the Eleventy build.
+const SITE = (await import("../src/_data/site.mjs")).default.url;
 // Eleventy has already written the English pages here; /el/ is generated
 // alongside them, so the whole site ships from one directory.
 const BUILD = path.join(ROOT, "_site");

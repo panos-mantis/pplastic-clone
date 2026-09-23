@@ -14,7 +14,8 @@ import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const SITE = "https://pplastic.gr";
+// Single source of truth, shared with the Eleventy build.
+const SITE = (await import("../src/_data/site.mjs")).default.url;
 const META = require(path.join(ROOT, "tools", "meta.el.json"));
 
 const TODAY = new Date().toISOString().slice(0, 10);

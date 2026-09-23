@@ -1,23 +1,37 @@
 # Deploying pplastic.gr
 
-The site is static — HTML, CSS, two small JS files and images. There is no build
-step to run at deploy time; everything in the repo is already the finished output.
+The published site is plain static files — HTML, CSS, three small JS files,
+fonts and images, with no server-side anything. But it is **generated**: the
+repo holds sources, not the finished pages.
+
+```bash
+npm ci
+npm run build     # -> _site/
+```
+
+Deploy the contents of **`_site/`**. Nothing else in the repo belongs on a
+server.
 
 ## What ships
+
+Everything below is inside `_site/` after a build:
 
 ```
 /                      English site (index.html, marine.html, …)
 /el/                   Greek site   (el/index.html, el/marine.html, …)
-/assets/               images + the catalogue PDF   (shared by both languages)
+/assets/               images, fonts, share cards + the catalogue PDF
 /css/  /js/            shared
 /robots.txt            allows everything, points at the sitemap
-/sitemap.xml           23 URLs — 11 pages × 2 languages + the catalogue PDF
+/sitemap.xml           25 URLs — 12 pages × 2 languages + the catalogue PDF
 /404.html  /el/404.html
-/tools/                build scripts — NOT needed at runtime, safe to exclude
 ```
 
+`src/`, `tools/`, `node_modules/` and the `.md` files are build-time only and
+must not be uploaded.
+
 Both languages are fully pre-rendered. Nothing is translated in the browser, so
-search engines see real Greek HTML at real Greek URLs.
+search engines see real Greek HTML at real Greek URLs. The fonts are served
+from `/assets/fonts/`, so a visitor's browser makes no third-party request.
 
 ## Host requirements
 
@@ -110,22 +124,34 @@ workflow (or deploy the repo as-is to the production host) so `robots.txt` and
 
 ## Changing content later
 
-Edit the **English** page or the translation table, then regenerate:
+Edit the **English** source or the translation table, then rebuild:
 
 ```bash
-node tools/build-el.mjs        # rewrites /el/ from the English pages
-node tools/build-sitemap.mjs   # rewrites sitemap.xml
+npm run serve     # live preview while editing
+npm run build     # regenerate _site/ for upload
 ```
 
 | To change | Edit |
 | --- | --- |
-| English page copy or structure | the `.html` file at the root |
+| English page copy or structure | `src/<page>.njk` |
+| Header, footer, nav, `<head>` | `src/_includes/layouts/base.njk` — one file, all pages |
+| Domain, email, phone, address | `src/_data/site.mjs` |
 | Greek body copy | the `el` block in `js/i18n-data.js` |
 | Greek titles / meta descriptions | `tools/meta.el.json` |
 | Greek image alt text | `tools/alts.el.json` |
+| Styling | `css/style.css` — design tokens in `:root` |
 
-Never edit files in `/el/` by hand — the next build overwrites them.
+Never edit `_site/` by hand — the next build overwrites all of it.
 
 `build-el.mjs` exits non-zero and prints a warning for any string it cannot
 translate, so a missed translation fails the build rather than shipping English
 text onto a Greek page. It is safe to re-run at any time.
+
+Two generators are **not** part of `npm run build`, because they need assets or
+network access a deploy should not depend on. Their output is committed; re-run
+them by hand only when you mean to change it:
+
+```bash
+npm run build:fonts   # re-download the self-hosted web fonts
+npm run build:og      # regenerate the 1200×630 share cards
+```
